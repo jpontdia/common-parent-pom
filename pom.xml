@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
+	<artifactId>parent-pom</artifactId>
+	<version>1.0.1</version>
+	<packaging>pom</packaging>
+
+	<name>parent-pom</name>
+
+	<properties>
+    	<!-- Project properties -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<app.runtime>4.4.0-20221111</app.runtime>
+
+		<!-- Plug-in properties -->
+		<mule.maven.plugin.version>3.8.4</mule.maven.plugin.version>
+		<maven-enforcer-plugin.version>3.1.0</maven-enforcer-plugin.version>
+		<maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
+		<maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
+		
+		<!-- Connector versions -->
+		<mule.http.connector.version>1.7.3</mule.http.connector.version>
+		<mule.apikit.module.version>1.7.2</mule.apikit.module.version>
+		<mule.tracing.module.verion>1.0.0</mule.tracing.module.verion>
+		<munit.version>2.3.13</munit.version>
+		<mule-validation-module.version>2.0.2</mule-validation-module.version>
+		<org.mule.weave.assertions.version>1.2.0</org.mule.weave.assertions.version>
+		<mule.otel.connector.version>1.1.2</mule.otel.connector.version>
+		<error.handler.plugin.version>5.1.0</error.handler.plugin.version>
+		
+		<!-- Dependencies version -->
+		<org.postgresql.postgresql.version>42.5.0</org.postgresql.postgresql.version>
+		<mule.db.connector.version>1.13.5</mule.db.connector.version>
+    </properties>
+
+	<build>
+    	<plugins>
+			<!-- 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+    			<artifactId>maven-deploy-plugin</artifactId>
+    			<version>3.1.1</version>
+			</plugin>
+			-->		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>${maven-clean-plugin.version}</version>
+			</plugin>
+			<!-- Configure the Maven Resources plugin to skip filtering of keystore files
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven-resources-plugin.version}</version>
+				<configuration>
+					<nonFilteredFileExtensions>
+						<nonFilteredFileExtension>cer</nonFilteredFileExtension>
+						<nonFilteredFileExtension>crt</nonFilteredFileExtension>
+						<nonFilteredFileExtension>jks</nonFilteredFileExtension>
+						<nonFilteredFileExtension>p12</nonFilteredFileExtension>
+						<nonFilteredFileExtension>pem</nonFilteredFileExtension>
+						<nonFilteredFileExtension>pfx</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
+				</configuration>
+			</plugin>
+			 -->
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>${mule.maven.plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<classifier>mule-application</classifier>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.mulesoft.munit.tools</groupId>
+				<artifactId>munit-maven-plugin</artifactId>
+				<version>${munit.version}</version>
+				<executions>
+					<execution>
+						<id>test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+							<goal>coverage-report</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<runtimeVersion>${app.runtime}</runtimeVersion>
+					<coverage>
+						<runCoverage>true</runCoverage>
+						<failBuild>true</failBuild>
+						<requiredApplicationCoverage>80</requiredApplicationCoverage>
+						<requiredResourceCoverage>80</requiredResourceCoverage>
+						<requiredFlowCoverage>80</requiredFlowCoverage>
+						<formats>
+							<format>sonar</format>
+							<format>json</format>							
+							<format>html</format>
+						</formats>
+					</coverage>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>${maven-enforcer-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>enforce</id>
+						<configuration>
+							<rules>
+								<requireProfileIdsExist />
+								<requireMavenVersion>
+									<version>[3.8,4.0)</version>
+								</requireMavenVersion>
+							</rules>
+						</configuration>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>            
+		</plugins>
+		
+		<!-- Enable referencing of Maven properties in Mule config files -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/mule</directory>
+				<filtering>true</filtering>
+			</resource>
+			<!-- If enable, will provoke log4j settings to be override
+			     from test configuration
+			<resource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/test/mule</directory>
+				<filtering>true</filtering>
+			</resource>
+			 -->
+		</resources>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- Salesforce connector -->
+			<dependency>
+				<groupId>com.mulesoft.connectors</groupId>
+				<artifactId>mule-salesforce-connector</artifactId>
+				<version>${salesforce.version}</version>
+				<classifier>mule-plugin</classifier>
+			</dependency>
+
+            <!-- OpenTelemetry connector -->
+            <dependency>
+                <groupId>84985c80-556b-4d7f-9f03-0352f6024a15</groupId>
+                <artifactId>mule-otel-connector</artifactId>
+                <version>${mule.otel.connector.version}</version>
+                <classifier>mule-plugin</classifier>
+            </dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+    		<groupId>org.codehaus.plexus</groupId>
+    		<artifactId>plexus-utils</artifactId>
+    		<version>3.5.1</version>
+		</dependency>
+
+		<!-- Mule connectors: HTTP, ApiKit, Secure properties, etc -->
+		<dependency>
+			<groupId>org.mule.connectors</groupId>
+			<artifactId>mule-http-connector</artifactId>
+			<version>${mule.http.connector.version}</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-apikit-module</artifactId>
+			<version>${mule.apikit.module.version}</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
+
+        <!-- MUnit Dependencies -->
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>munit-runner</artifactId>
+			<version>${munit.version}</version>
+			<classifier>mule-plugin</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>munit-tools</artifactId>
+			<version>${munit.version}</version>
+			<classifier>mule-plugin</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.weave</groupId>
+			<artifactId>assertions</artifactId>
+			<version>${org.mule.weave.assertions.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-validation-module</artifactId>
+			<version>${mule-validation-module.version}</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
+
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>anypoint-exchange-v3</id>
+			<name>Anypoint Exchange</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>mulesoft-releases</id>
+			<name>MuleSoft Releases Repository</name>
+			<url>https://repository.mulesoft.org/releases/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>mulesoft-releases</id>
+			<name>MuleSoft Releases Repository</name>
+			<layout>default</layout>
+			<url>https://repository.mulesoft.org/releases/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<!-- To deploy artifacts in Anypoint Organization Repository -->
+	<distributionManagement>
+		<repository>
+			<id>anypoint-exchange-v3</id>
+			<name>Assets for your anypoint organization</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v2/organizations/${project.groupId}/maven</url>
+			<layout>default</layout>
+		</repository>
+	</distributionManagement>
+</project>
