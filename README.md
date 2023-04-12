@@ -60,8 +60,8 @@ mvn deploy
 <br>
 
 ## List of plugins and dependencies
-Mandatory properties in POM 
-| Artifact      | Documentation / List of versions |
+Next are the plugins and dependencies included in the Parent POM and the link where We can check if there is a new version available
+| Artifact      | Documentation / Versions available |
 | ----------- | ----------- |
 | mule-maven-plugin | https://mvnrepository.com/artifact/org.mule.tools.maven/mule-maven-plugin?repo=mulesoft-public | 
 | | https://docs.mulesoft.com/release-notes/mule-maven-plugin/mule-maven-plugin-release-notes | 
