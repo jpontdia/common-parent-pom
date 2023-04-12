@@ -66,6 +66,27 @@ Next are the plugins and dependencies included in the Parent POM and the link wh
 | mule-maven-plugin | https://mvnrepository.com/artifact/org.mule.tools.maven/mule-maven-plugin?repo=mulesoft-public | 
 | | https://docs.mulesoft.com/release-notes/mule-maven-plugin/mule-maven-plugin-release-notes | 
 | maven-deploy-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin | 
+| maven-enforcer-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin | 
+| maven-resources-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin | 
+| maven-clean-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin | 
+| mule-http-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-http-connector?repo=mulesoft-releases | 
+| mule-apikit-module | https://mvnrepository.com/artifact/org.mule.modules/mule-apikit-module?repo=mulesoft-releases | 
+| mule-tracing-module | https://mvnrepository.com/artifact/org.mule.modules/mule-tracing-module?repo=mulesoft-releases | 
+| munit-maven-plugin | https://mvnrepository.com/artifact/com.mulesoft.munit.tools/munit-maven-plugin?repo=mulesoft-releases | 
+| munit-tools | https://mvnrepository.com/artifact/com.mulesoft.munit/munit-tools?repo=mulesoft-releases | 
+| munit-runner | https://mvnrepository.com/artifact/com.mulesoft.munit/munit-runner |
+| mule-validation-module | https://mvnrepository.com/artifact/org.mule.modules/mule-validation-module?repo=mulesoft-public |
+| assertions | https://mvnrepository.com/artifact/org.mule.weave/assertions?repo=mulesoft-releases |
+
+Optional artifacts
+| Artifact      | Documentation / Versions available |
+| ----------- | ----------- |
+| log4j-core | https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core | 
+| log4j-api | https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api | 
+| logzio-log4j2-appender | https://mvnrepository.com/artifact/io.logz.log4j2/logzio-log4j2-appender | 
+| logzio-java-sender | https://mvnrepository.com/artifact/io.logz.sender/logzio-java-sender | 
+| mule-salesforce-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule-salesforce-connector | 
+| | https://docs.mulesoft.com/salesforce-connector/10.17 |
 
 ## Recommended content
 * [How to work with a parent pom](https://help.mulesoft.com/s/article/How-to-work-with-a-parent-pom)

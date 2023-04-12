@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.4</version>
 	<packaging>pom</packaging>
 
 	<name>parent-pom</name>
@@ -17,29 +17,38 @@
     	<!-- Project properties -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<app.runtime>4.4.0-20221111</app.runtime>
+
+		<!-- https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.4.0-release-notes -->
+		<app.runtime>4.4.0-20230320</app.runtime>
 
 		<!-- Plug-in properties -->
-		<maven.deploy.plugin.version>3.1.1</maven.deploy.plugin.version>
-		<plexus.utils.version>3.5.1</plexus.utils.version>
+		<maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
+		<plexus-utils.version>3.5.1</plexus-utils.version>
 		<mule.maven.plugin.version>3.8.4</mule.maven.plugin.version>
-		<maven-enforcer-plugin.version>3.1.0</maven-enforcer-plugin.version>
-		<maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
+		<maven-enforcer-plugin.version>3.3.0</maven-enforcer-plugin.version>
+		<maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
 		<maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
 		
 		<!-- Connector versions -->
-		<mule.http.connector.version>1.7.3</mule.http.connector.version>
-		<mule.apikit.module.version>1.7.2</mule.apikit.module.version>
-		<mule.tracing.module.verion>1.0.0</mule.tracing.module.verion>
-		<munit.version>2.3.13</munit.version>
-		<mule-validation-module.version>2.0.2</mule-validation-module.version>
-		<org.mule.weave.assertions.version>1.2.0</org.mule.weave.assertions.version>
-		<mule.otel.connector.version>1.1.2</mule.otel.connector.version>
+		<mule-http-connector.version>1.7.3</mule-http-connector.version>
+		<mule-apikit-module.version>1.8.0</mule-apikit-module.version>
+		<mule-tracing-module.version>1.0.0</mule-tracing-module.version>
+		<munit-maven-plugin.version>2.3.15</munit-maven-plugin.version>
+		<munit-tools.version>2.3.15</munit-tools.version>
+		<munit-runner.version>2.3.15</munit-runner.version>
+		<mule-validation-module.version>2.0.3</mule-validation-module.version>
+		<assertions.version>1.2.1</assertions.version>
+		<mule-otel-connector.version>1.1.2</mule-otel-connector.version>
 		<error.handler.plugin.version>5.1.0</error.handler.plugin.version>
 		
-		<!-- Dependencies version -->
-		<org.postgresql.postgresql.version>42.5.0</org.postgresql.postgresql.version>
-		<mule.db.connector.version>1.13.5</mule.db.connector.version>
+		<!-- Optional dependencies -->
+		<mule-salesforce-connector.version>10.17.0</mule-salesforce-connector.version>
+		<log4j-core.version>2.20.0</log4j-core.version>
+		<log4j-api.version>2.20.0</log4j-api.version>
+		<logzio-log4j2-appender.version>1.0.18</logzio-log4j2-appender.version>
+		<logzio-sender.version>1.1.7</logzio-sender.version>
+		<json-logger.version>3.0.0</json-logger.version>
+
     </properties>
 
 	<build>
@@ -47,7 +56,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
     			<artifactId>maven-deploy-plugin</artifactId>
-    			<version>${maven.deploy.plugin.version}</version>
+    			<version>${maven-deploy-plugin.version}</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -83,7 +92,7 @@
 			<plugin>
 				<groupId>com.mulesoft.munit.tools</groupId>
 				<artifactId>munit-maven-plugin</artifactId>
-				<version>${munit.version}</version>
+				<version>${munit-maven-plugin.version}</version>
 				<executions>
 					<execution>
 						<id>test</id>
@@ -122,7 +131,7 @@
 							<rules>
 								<requireProfileIdsExist />
 								<requireMavenVersion>
-									<version>[3.8,4.0)</version>
+									<version>[3.8,3.9)</version>
 								</requireMavenVersion>
 							</rules>
 						</configuration>
@@ -165,17 +174,45 @@
 			<dependency>
 				<groupId>com.mulesoft.connectors</groupId>
 				<artifactId>mule-salesforce-connector</artifactId>
-				<version>${salesforce.version}</version>
+				<version>${mule-salesforce-connector.version}</version>
 				<classifier>mule-plugin</classifier>
 			</dependency>
 
             <!-- OpenTelemetry connector -->
             <dependency>
-                <groupId>84985c80-556b-4d7f-9f03-0352f6024a15</groupId>
+                <groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
                 <artifactId>mule-otel-connector</artifactId>
                 <version>${mule.otel.connector.version}</version>
                 <classifier>mule-plugin</classifier>
             </dependency>
+
+            <!-- Logging -->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${log4j-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-api</artifactId>
+				<version>${log4j-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.logz.log4j2</groupId>
+				<artifactId>logzio-log4j2-appender</artifactId>
+				<version>${logzio-log4j2-appender.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.logz.sender</groupId>
+				<artifactId>logzio-sender</artifactId>
+				<version>${logzio-sender.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
+				<artifactId>json-logger</artifactId>
+				<version>${json-logger.version}</version>
+				<classifier>mule-plugin</classifier>
+			</dependency>	
 		</dependencies>
 	</dependencyManagement>
 
@@ -184,20 +221,20 @@
 		<dependency>
     		<groupId>org.codehaus.plexus</groupId>
     		<artifactId>plexus-utils</artifactId>
-    		<version>${plexus.utils.version}</version>
+    		<version>${plexus-utils.version}</version>
 		</dependency>
 
 		<!-- Mule connectors: HTTP, ApiKit, Secure properties, etc -->
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-http-connector</artifactId>
-			<version>${mule.http.connector.version}</version>
+			<version>${mule-http-connector.version}</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
 			<groupId>org.mule.modules</groupId>
 			<artifactId>mule-apikit-module</artifactId>
-			<version>${mule.apikit.module.version}</version>
+			<version>${mule-apikit-module.version}</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 
@@ -205,21 +242,21 @@
 		<dependency>
 			<groupId>com.mulesoft.munit</groupId>
 			<artifactId>munit-runner</artifactId>
-			<version>${munit.version}</version>
+			<version>${munit-runner.version}</version>
 			<classifier>mule-plugin</classifier>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.mulesoft.munit</groupId>
 			<artifactId>munit-tools</artifactId>
-			<version>${munit.version}</version>
+			<version>${munit-tools.version}</version>
 			<classifier>mule-plugin</classifier>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mule.weave</groupId>
 			<artifactId>assertions</artifactId>
-			<version>${org.mule.weave.assertions.version}</version>
+			<version>${assertions.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -228,7 +265,12 @@
 			<version>${mule-validation-module.version}</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
-
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-tracing-module</artifactId>
+  			<version>${mule-tracing-module.version}</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
 	</dependencies>
 
 	<repositories>
