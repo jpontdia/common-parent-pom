@@ -4,10 +4,14 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<packaging>pom</packaging>
 
 	<name>parent-pom</name>
+
+	<!-- ***************************************************************************** -->
+	<!-- ** This POM file doesn't work with maven 3.9.X                             ** -->
+	<!-- ***************************************************************************** -->
 
 	<properties>
     	<!-- Project properties -->
@@ -16,6 +20,8 @@
 		<app.runtime>4.4.0-20221111</app.runtime>
 
 		<!-- Plug-in properties -->
+		<maven.deploy.plugin.version>3.1.1</maven.deploy.plugin.version>
+		<plexus.utils.version>3.5.1</plexus.utils.version>
 		<mule.maven.plugin.version>3.8.4</mule.maven.plugin.version>
 		<maven-enforcer-plugin.version>3.1.0</maven-enforcer-plugin.version>
 		<maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
@@ -38,13 +44,11 @@
 
 	<build>
     	<plugins>
-			<!-- 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
     			<artifactId>maven-deploy-plugin</artifactId>
-    			<version>3.1.1</version>
+    			<version>${maven.deploy.plugin.version}</version>
 			</plugin>
-			-->		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -176,10 +180,11 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- Dependency used for the deployment process (maven-deploy-plugin) -->
 		<dependency>
     		<groupId>org.codehaus.plexus</groupId>
     		<artifactId>plexus-utils</artifactId>
-    		<version>3.5.1</version>
+    		<version>${plexus.utils.version}</version>
 		</dependency>
 
 		<!-- Mule connectors: HTTP, ApiKit, Secure properties, etc -->
