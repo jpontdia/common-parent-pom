@@ -3,10 +3,11 @@
 
 ## Table of contents
 1. [Using the parent POM](#usinge-the-parent-pom)
-2. [Deployment in Anypoint](#deployment-in-anypoint)
+2. [Deployment in Anypoint](#deployment-in-anypoint-exchange)
   * [Prerequisites](#prerequisites)
   * [Deployment](#deployment)
-3. [Recommended content](#recommended-content)
+3. [List of plugins and dependencies](#list-of-plugins-and-dependencies)
+4. [Recommended content](#recommended-content)
 
 <br>
 
@@ -57,6 +58,15 @@ mvn deploy
 ```
 
 <br>
+
+## List of plugins and dependencies
+Mandatory properties in POM 
+| Artifact      | Documentation / List of versions |
+| ----------- | ----------- |
+| mule-maven-plugin | https://mvnrepository.com/artifact/org.mule.tools.maven/mule-maven-plugin?repo=mulesoft-public <br />
+https://docs.mulesoft.com/release-notes/mule-maven-plugin/mule-maven-plugin-release-notes       |
+| api.tags      | Anypoint Visualizer. Tags for the service separated by commas, example: customer, finance |
+
 
 ## Recommended content
 * [How to work with a parent pom](https://help.mulesoft.com/s/article/How-to-work-with-a-parent-pom)
