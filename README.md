@@ -63,7 +63,7 @@ mvn deploy
 Mandatory properties in POM 
 | Artifact      | Documentation / List of versions |
 | ----------- | ----------- |
-| mule-maven-plugin | https://mvnrepository.com/artifact/org.mule.tools.maven/mule-maven-plugin?repo=mulesoft-public \
+| mule-maven-plugin | https://mvnrepository.com/artifact/org.mule.tools.maven/mule-maven-plugin?repo=mulesoft-public <br>
 https://docs.mulesoft.com/release-notes/mule-maven-plugin/mule-maven-plugin-release-notes       |
 | api.tags      | Anypoint Visualizer. Tags for the service separated by commas, example: customer, finance |
 
