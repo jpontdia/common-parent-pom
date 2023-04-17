@@ -4,10 +4,12 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.7</version>
+	<version>1.0.10</version>
 	<packaging>pom</packaging>
 
+	<!-- For documentation in Anypoint Exchange-->
 	<name>parent-pom</name>
+	<description>Parent POM for Mulesoft applications</description>
 
 	<!-- ***************************************************************************** -->
 	<!-- ** This POM file doesn't work with maven 3.9.X                             ** -->
@@ -21,15 +23,16 @@
 		<!-- https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.4.0-release-notes -->
 		<app.runtime>4.4.0-20230320</app.runtime>
 
-		<!-- Plug-in properties -->
+		<!-- Plugins -->
 		<maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
 		<plexus-utils.version>3.5.1</plexus-utils.version>
-		<mule.maven.plugin.version>3.8.4</mule.maven.plugin.version>
+		<mule-maven-plugin.version>3.8.4</mule-maven-plugin.version>
 		<maven-enforcer-plugin.version>3.3.0</maven-enforcer-plugin.version>
 		<maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
 		<maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
-		
-		<!-- Connector versions -->
+		<exchange-mule-maven-plugin.version>0.0.17</exchange-mule-maven-plugin.version>
+
+		<!-- Connectors-->
 		<mule-http-connector.version>1.7.3</mule-http-connector.version>
 		<mule-apikit-module.version>1.8.0</mule-apikit-module.version>
 		<mule-tracing-module.version>1.0.0</mule-tracing-module.version>
@@ -49,6 +52,8 @@
 		<logzio-sender.version>1.1.7</logzio-sender.version>
 		<json-logger.version>3.0.0</json-logger.version>
 
+		<!-- Next property is used when deploying the parent pom file to Anypoint Exchange -->
+		<type>custom</type>
     </properties>
 
 	<build>
@@ -73,27 +78,10 @@
           			</nonFilteredFileExtensions>
         		</configuration>
 			</plugin>
-			<!-- Configure the Maven Resources plugin to skip filtering of keystore files
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>${maven-resources-plugin.version}</version>
-				<configuration>
-					<nonFilteredFileExtensions>
-						<nonFilteredFileExtension>cer</nonFilteredFileExtension>
-						<nonFilteredFileExtension>crt</nonFilteredFileExtension>
-						<nonFilteredFileExtension>jks</nonFilteredFileExtension>
-						<nonFilteredFileExtension>p12</nonFilteredFileExtension>
-						<nonFilteredFileExtension>pem</nonFilteredFileExtension>
-						<nonFilteredFileExtension>pfx</nonFilteredFileExtension>
-					</nonFilteredFileExtensions>
-				</configuration>
-			</plugin>
-			 -->
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
+				<version>${mule-maven-plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
 					<classifier>mule-application</classifier>
@@ -130,6 +118,7 @@
 				</configuration>
 			</plugin>
 
+			<!-- Enforce a specific maven version to compile and deploy projects -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-enforcer-plugin</artifactId>
@@ -150,7 +139,31 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>            
+			</plugin>
+
+			<!-- To deploy this parent-pom to exchange -->
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>exchange-mule-maven-plugin</artifactId>
+				<version>${exchange-mule-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>validate</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>exchange-pre-deploy</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>exchange-deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+                <inherited>false</inherited>
+	        </plugin>
 		</plugins>
 		
 		<!-- Enable referencing of Maven properties in Mule config files -->
@@ -315,7 +328,7 @@
 		<repository>
 			<id>anypoint-exchange-v3</id>
 			<name>Assets for your anypoint organization</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v2/organizations/${project.groupId}/maven</url>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
 			<layout>default</layout>
 		</repository>
 	</distributionManagement>

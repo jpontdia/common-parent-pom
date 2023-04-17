@@ -1,5 +1,5 @@
 # mulesoft-parent-pom
->Parent POM for deployment in CloudHub 1 and 2
+>Parent POM for Mulesoft applications
 
 ## Table of contents
 1. [Using the parent POM](#usinge-the-parent-pom)
@@ -60,15 +60,22 @@ mvn deploy
 <br>
 
 ## List of plugins and dependencies
-Next are the plugins and dependencies included in the Parent POM and the link where We can check if there is a new version available
+Next are the plugins and dependencies included in the parent POM and the link to check new versions.
+
+**Plugins**
 | Artifact      | Documentation / Versions available |
 | ----------- | ----------- |
+| maven-deploy-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin | 
 | mule-maven-plugin | https://mvnrepository.com/artifact/org.mule.tools.maven/mule-maven-plugin?repo=mulesoft-public | 
 | | https://docs.mulesoft.com/release-notes/mule-maven-plugin/mule-maven-plugin-release-notes | 
-| maven-deploy-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin | 
 | maven-enforcer-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin | 
 | maven-resources-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin | 
 | maven-clean-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin | 
+| exchange-mule-maven-plugin | https://mvnrepository.com/artifact/org.mule.tools.maven/exchange-mule-maven-plugin?repo=mulesoft-releases | 
+
+**Connectors**
+| Artifact      | Documentation / Versions available |
+| ----------- | ----------- |
 | mule-http-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-http-connector?repo=mulesoft-releases | 
 | mule-apikit-module | https://mvnrepository.com/artifact/org.mule.modules/mule-apikit-module?repo=mulesoft-releases | 
 | mule-tracing-module | https://mvnrepository.com/artifact/org.mule.modules/mule-tracing-module?repo=mulesoft-releases | 
@@ -78,15 +85,15 @@ Next are the plugins and dependencies included in the Parent POM and the link wh
 | mule-validation-module | https://mvnrepository.com/artifact/org.mule.modules/mule-validation-module?repo=mulesoft-public |
 | assertions | https://mvnrepository.com/artifact/org.mule.weave/assertions?repo=mulesoft-releases |
 
-Optional artifacts
+**Optional artifacts**
 | Artifact      | Documentation / Versions available |
 | ----------- | ----------- |
+| mule-salesforce-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule-salesforce-connector | 
+| | https://docs.mulesoft.com/salesforce-connector/10.17 |
 | log4j-core | https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core | 
 | log4j-api | https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api | 
 | logzio-log4j2-appender | https://mvnrepository.com/artifact/io.logz.log4j2/logzio-log4j2-appender | 
-| logzio-java-sender | https://mvnrepository.com/artifact/io.logz.sender/logzio-java-sender | 
-| mule-salesforce-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule-salesforce-connector | 
-| | https://docs.mulesoft.com/salesforce-connector/10.17 |
+| logzio-sender | https://mvnrepository.com/artifact/io.logz.sender/logzio-sender | 
 
 ## Recommended content
 * [How to work with a parent pom](https://help.mulesoft.com/s/article/How-to-work-with-a-parent-pom)
