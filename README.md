@@ -1,13 +1,13 @@
-# mulesoft-parent-pom
->Parent POM for Mulesoft applications
+# parent-pom
+Parent POM for Mulesoft applications
 
 ## Table of contents
 1. [Using the parent POM](#usinge-the-parent-pom)
-2. [Deployment in Anypoint](#deployment-in-anypoint-exchange)
-  * [Prerequisites](#prerequisites)
-  * [Deployment](#deployment)
+1. [Deployment in Anypoint](#deployment-in-anypoint-exchange)
+    - [Prerequisites](#prerequisites)
+    - [Deployment](#deployment)
 3. [List of plugins and dependencies](#list-of-plugins-and-dependencies)
-4. [Recommended content](#recommended-content)
+1. [Recommended content](#recommended-content)
 
 <br>
 
@@ -29,9 +29,10 @@ Update the element `version` to match the latest release available.
 
 ### Prerequisites
 To compile and build the project:
-* Java Development Kit (JDK) 8. Must be version 8!
-* Apache Maven, version 3.8 or later.
-* Anypoint account credentials
+
+ - Java Development Kit (JDK) 8
+ - Apache Maven, version 3.8 or later.
+ - Anypoint account credentials
 
 <br>
 
@@ -63,9 +64,10 @@ mvn deploy
 Next are the plugins and dependencies included in the parent POM and the link to check new versions.
 
 **Plugins**
+
 | Artifact      | Documentation / Versions available |
 | ----------- | ----------- |
-| maven-deploy-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin | 
+| maven-deploy-plugin      | [https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin](https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin)       
 | mule-maven-plugin | https://mvnrepository.com/artifact/org.mule.tools.maven/mule-maven-plugin?repo=mulesoft-public | 
 | | https://docs.mulesoft.com/release-notes/mule-maven-plugin/mule-maven-plugin-release-notes | 
 | maven-enforcer-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin | 
@@ -74,6 +76,7 @@ Next are the plugins and dependencies included in the parent POM and the link to
 | exchange-mule-maven-plugin | https://mvnrepository.com/artifact/org.mule.tools.maven/exchange-mule-maven-plugin?repo=mulesoft-releases | 
 
 **Connectors**
+
 | Artifact      | Documentation / Versions available |
 | ----------- | ----------- |
 | mule-http-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-http-connector?repo=mulesoft-releases | 
@@ -86,6 +89,7 @@ Next are the plugins and dependencies included in the parent POM and the link to
 | assertions | https://mvnrepository.com/artifact/org.mule.weave/assertions?repo=mulesoft-releases |
 
 **Optional artifacts**
+
 | Artifact      | Documentation / Versions available |
 | ----------- | ----------- |
 | mule-salesforce-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule-salesforce-connector | 
