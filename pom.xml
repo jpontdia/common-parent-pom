@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.15</version>
+	<version>1.0.17</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -41,10 +41,10 @@
 		<munit-runner.version>2.3.15</munit-runner.version>
 		<mule-validation-module.version>2.0.3</mule-validation-module.version>
 		<assertions.version>1.2.1</assertions.version>
-		<mule-otel-connector.version>1.1.2</mule-otel-connector.version>
 		<error.handler.plugin.version>5.1.0</error.handler.plugin.version>
 		
 		<!-- Optional dependencies -->
+		<mule-otel-connector.version>1.0.74</mule-otel-connector.version>
 		<mule-salesforce-connector.version>10.17.0</mule-salesforce-connector.version>
 		<log4j-core.version>2.20.0</log4j-core.version>
 		<log4j-api.version>2.20.0</log4j-api.version>
@@ -75,6 +75,11 @@
 				<configuration>
           			<nonFilteredFileExtensions>
             			<nonFilteredFileExtension>jks</nonFilteredFileExtension>
+						<nonFilteredFileExtension>cer</nonFilteredFileExtension>
+						<nonFilteredFileExtension>crt</nonFilteredFileExtension>
+						<nonFilteredFileExtension>p12</nonFilteredFileExtension>
+						<nonFilteredFileExtension>pem</nonFilteredFileExtension>
+						<nonFilteredFileExtension>pfx</nonFilteredFileExtension>
           			</nonFilteredFileExtensions>
         		</configuration>
 			</plugin>
