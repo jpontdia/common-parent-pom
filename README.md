@@ -9,7 +9,7 @@ Parent POM for Mulesoft applications
 3. [List of plugins and dependencies](#list-of-plugins-and-dependencies)
 1. [Recommended content](#recommended-content)
 
-<br>
+<br>  
 
 ## Using the parent POM
 To use the parent POM in any of the child projects, specify the `parent`
