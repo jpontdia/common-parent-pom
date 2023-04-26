@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.19</version>
+	<version>1.0.20</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -119,6 +119,9 @@
 							<format>json</format>							
 							<format>html</format>
 						</formats>
+						<ignoreFiles>
+							<ignoreFile>global-error.xml</ignoreFile>
+						</ignoreFiles>						
 					</coverage>
 				</configuration>
 			</plugin>
