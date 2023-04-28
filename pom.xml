@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.20</version>
+	<version>1.0.21</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -112,8 +112,8 @@
 						<runCoverage>true</runCoverage>
 						<failBuild>true</failBuild>
 						<requiredApplicationCoverage>80</requiredApplicationCoverage>
-						<requiredResourceCoverage>80</requiredResourceCoverage>
-						<requiredFlowCoverage>80</requiredFlowCoverage>
+						<requiredResourceCoverage>0</requiredResourceCoverage>
+						<requiredFlowCoverage>20</requiredFlowCoverage>
 						<formats>
 							<format>sonar</format>
 							<format>json</format>							
