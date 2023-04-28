@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.21</version>
+	<version>1.0.22</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -45,7 +45,7 @@
 		
 		<!-- Optional dependencies -->
 		<mule-otel-connector.version>1.0.74</mule-otel-connector.version>
-		<mule-salesforce-connector.version>10.17.0</mule-salesforce-connector.version>
+		<mule-salesforce-connector.version>10.17.1</mule-salesforce-connector.version>
 		<log4j-core.version>2.20.0</log4j-core.version>
 		<log4j-api.version>2.20.0</log4j-api.version>
 		<logzio-log4j2-appender.version>1.0.18</logzio-log4j2-appender.version>
