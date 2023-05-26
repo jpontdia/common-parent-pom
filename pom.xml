@@ -149,7 +149,12 @@
 				</executions>
 			</plugin>
 
-			<!-- To deploy this parent-pom to exchange -->
+			<!-- To deploy assets to Anypoint Exchange
+			Documentation:
+			- https://help.mulesoft.com/s/article/Correct-usage-of-Exchange-with-Maven
+			- https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/exchange-maven-facade-api-http/minor/3.0/pages/home/
+			- https://github.com/mulesoft-labs/exchange-documentation-samples
+			-->
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>exchange-mule-maven-plugin</artifactId>
