@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.23</version>
+	<version>1.0.24</version>
 	<packaging>pom</packaging> 
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -26,7 +26,7 @@
 		<!-- Plugins -->
 		<maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
 		<plexus-utils.version>3.5.1</plexus-utils.version>
-		<mule-maven-plugin.version>3.8.4</mule-maven-plugin.version>
+		<mule-maven-plugin.version>3.8.5</mule-maven-plugin.version>
 		<maven-enforcer-plugin.version>3.3.0</maven-enforcer-plugin.version>
 		<maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
 		<maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
@@ -41,8 +41,17 @@
 		<munit-runner.version>2.3.15</munit-runner.version>
 		<mule-validation-module.version>2.0.3</mule-validation-module.version>
 		<assertions.version>1.2.1</assertions.version>
+
+		<!-- Connectors. Mule Metrics Toolkit Application-->
 		<error.handler.plugin.version>5.1.0</error.handler.plugin.version>
-		
+		<mule-objectstore-connector.version>1.2.1</mule-objectstore-connector.version>
+		<mule-secure-configuration-property-module.version>1.2.5</mule-secure-configuration-property-module.version>
+		<mule-custom-metrics-extension.version>2.2.0</mule-custom-metrics-extension.version>
+		<mule-sfdc-analytics-connector.version>3.12.0</mule-sfdc-analytics-connector.version>
+		<mule-mongodb-connector.version>6.3.7</mule-mongodb-connector.version>
+		<mongodb-driver-legacy.version>4.9.1/<mongodb-driver-legacy.version>
+		<mule-file-connector.version>1.5.1</mule-file-connector>
+
 		<!-- Optional dependencies -->
 		<mule-otel-connector.version>1.0.74</mule-otel-connector.version>
 		<mule-salesforce-connector.version>10.17.1</mule-salesforce-connector.version>
@@ -120,7 +129,35 @@
 							<format>html</format>
 						</formats>
 						<ignoreFiles>
+							<!-- *********************************-->
+							<!-- micorp-commons                   -->
+							<!-- *********************************-->
+							<!-- Error Handling -->
 							<ignoreFile>global-error.xml</ignoreFile>
+
+							<!-- *********************************-->
+							<!-- Mule Metrics Toolkit Application -->
+							<!-- *********************************-->
+							<!-- Ignoring the entry points, main listener, console, 
+								 embedded dashboard listener -->
+							<ignoreFlow>api-main</ignoreFlow>
+							<ignoreFlow>api-console</ignoreFlow>
+							<ignoreFlow>web-main</ignoreFlow>
+							<!-- Ignoring the following 2 flows since they were never implemented properly, 
+	  						they are not currently used but keeping them for future enhancements -->
+							<ignoreFlow>loader-sdlc-flow</ignoreFlow>
+							<ignoreFlow>loader-sdlc-splunk-hec-main-flow</ignoreFlow>
+
+							<!-- Ignoring the following 2 flows since they are not used by ARM aggregations (ARM v2 is used instead), 
+	  						keeping for reference but both will be removed in the future -->
+							<ignoreFlow>api-call-arm-apps-flow</ignoreFlow>
+							<ignoreFlow>collector-arm-apps-metrics-parallel-flow</ignoreFlow>
+							<!-- Ignoring roles groups since it is not used by default - keeping it for future improvements -->
+							<ignoreFlow>collector-rolegroups-metrics</ignoreFlow>
+							<ignoreFlow>api-call-coreservices-rolegroups</ignoreFlow>
+							<!-- Ignoring the following flows since they are not used - keeping them as references -->
+							<ignoreFlow>api-call-coreservices-login-cache-flow</ignoreFlow>
+							<ignoreFlow>api-call-analytics-events-flow</ignoreFlow>
 						</ignoreFiles>						
 					</coverage>
 				</configuration>
@@ -248,7 +285,40 @@
 				<artifactId>json-logger</artifactId>
 				<version>${json-logger.version}</version>
 				<classifier>mule-plugin</classifier>
-			</dependency>	
+			</dependency>
+
+			<!-- Mule Metrics Toolkit Application -->
+			<dependency>
+				<groupId>com.mule.modules</groupId>
+				<artifactId>mule-custom-metrics-extension</artifactId>
+				<version>${mule-custom-metrics-extension.version}</version>
+				<classifier>mule-plugin</classifier>
+			</dependency>
+			<dependency>
+				<groupId>org.mule.connectors</groupId>
+				<artifactId>mule-file-connector</artifactId>
+				<version>${mule-file-connector.version}</version>
+				<classifier>mule-plugin</classifier>
+			</dependency>
+			<dependency>
+				<groupId>com.mulesoft.modules</groupId>
+				<artifactId>mule-secure-configuration-property-module</artifactId>
+				<version>${mule-secure-configuration-property-module.version}</version>
+				<classifier>mule-plugin</classifier>
+			</dependency>
+			<dependency>
+				<groupId>org.mule.connectors</groupId>
+				<artifactId>mule-objectstore-connector</artifactId>
+				<version>${mule-objectstore-connector.version}</version>
+				<classifier>mule-plugin</classifier>
+			</dependency>
+			<dependency>
+				<groupId>com.mulesoft.connectors</groupId>
+				<artifactId>mule-sfdc-analytics-connector</artifactId>
+				<version>${mule-sfdc-analytics-connector.version}</version>
+				<classifier>mule-plugin</classifier>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 

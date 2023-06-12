@@ -88,6 +88,22 @@ Next are the plugins and dependencies included in the parent POM and the link to
 | mule-validation-module | https://mvnrepository.com/artifact/org.mule.modules/mule-validation-module?repo=mulesoft-public |
 | assertions | https://mvnrepository.com/artifact/org.mule.weave/assertions?repo=mulesoft-releases |
 
+**Connectors for Mulesoft Metrics Toolkit Application**
+
+| Artifact      | Documentation / Versions available |
+| ------------- | ----------- |
+| mule-objectstore-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-objectstore-connector?repo=mulesoft-releases | 
+| mule-secure-configuration-property-module | https://mvnrepository.com/artifact/com.mulesoft.modules/mule-secure-configuration-property-module | 
+| mule-custom-metrics-extension | https://docs.mulesoft.com/custom-metrics-connector/2.2/custom-metrics-connector-reference | 
+|  | https://mvnrepository.com/artifact/org.mule.connectors/mule-custom-metrics-extension | 
+| mule-sfdc-analytics-connector | https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-sfdc-analytics-connector/ | 
+|  | https://docs.mulesoft.com/salesforce-analytics-cloud-connector/3.12 | 
+| mule-mongodb-connector | https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-mongodb-connector/ | 
+|  | https://mvnrepository.com/artifact/com.mulesoft.connectors/mule-mongodb-connector | 
+| mongodb-driver-legacy | https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-legacy | 
+| mule-file-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-file-connector | 
+
+
 **Optional artifacts**
 
 | Artifact      | Documentation / Versions available |
