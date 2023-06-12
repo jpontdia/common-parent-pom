@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.24</version>
+	<version>1.0.25</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -89,6 +89,12 @@
 						<nonFilteredFileExtension>p12</nonFilteredFileExtension>
 						<nonFilteredFileExtension>pem</nonFilteredFileExtension>
 						<nonFilteredFileExtension>pfx</nonFilteredFileExtension>
+
+						<!-- Metrics Toolkit Application-->
+						<nonFilteredFileExtension>woff2</nonFilteredFileExtension>
+						<nonFilteredFileExtension>eot</nonFilteredFileExtension>
+						<nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+
           			</nonFilteredFileExtensions>
         		</configuration>
 			</plugin>
