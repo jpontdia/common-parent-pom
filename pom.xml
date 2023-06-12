@@ -50,7 +50,7 @@
 		<mule-sfdc-analytics-connector.version>3.12.0</mule-sfdc-analytics-connector.version>
 		<mule-mongodb-connector.version>6.3.7</mule-mongodb-connector.version>
 		<mongodb-driver-legacy.version>4.9.1/</mongodb-driver-legacy.version>
-		<mule-file-connector.version>1.5.1</mule-file-connector>
+		<mule-file-connector.version>1.5.1</mule-file-connector.version>
 
 		<!-- Optional dependencies -->
 		<mule-otel-connector.version>1.0.74</mule-otel-connector.version>
