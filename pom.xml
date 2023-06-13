@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.26</version>
+	<version>1.0.27</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -22,6 +22,11 @@
 
 		<!-- https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.4.0-release-notes -->
 		<app.runtime>4.4.0-20230320</app.runtime>
+
+		<!-- Code coverage settings -->
+		<codecoverage.flow>20</codecoverage.flow>
+		<codecoverage.resource>0</codecoverage.resource>
+		<codecoverage.application>80</codecoverage.application>
 
 		<!-- Plugins -->
 		<maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
@@ -127,9 +132,9 @@
 					<coverage>
 						<runCoverage>true</runCoverage>
 						<failBuild>true</failBuild>
-						<requiredApplicationCoverage>80</requiredApplicationCoverage>
-						<requiredResourceCoverage>0</requiredResourceCoverage>
-						<requiredFlowCoverage>20</requiredFlowCoverage>
+						<requiredApplicationCoverage>${codecoverage.application}</requiredApplicationCoverage>
+						<requiredResourceCoverage>${codecoverage.resource}</requiredResourceCoverage>
+						<requiredFlowCoverage>${codecoverage.flow}</requiredFlowCoverage>
 						<formats>
 							<format>sonar</format>
 							<format>json</format>							
