@@ -41,9 +41,9 @@
 		<mule-http-connector.version>1.7.3</mule-http-connector.version>
 		<mule-apikit-module.version>1.8.4</mule-apikit-module.version>
 		<mule-tracing-module.version>1.0.0</mule-tracing-module.version>
-		<munit-maven-plugin.version>2.3.15</munit-maven-plugin.version>
-		<munit-tools.version>2.3.15</munit-tools.version>
-		<munit-runner.version>2.3.15</munit-runner.version>
+		<munit-maven-plugin.version>2.3.16</munit-maven-plugin.version>
+		<munit-tools.version>2.3.16</munit-tools.version>
+		<munit-runner.version>2.3.16</munit-runner.version>
 		<mule-validation-module.version>2.0.3</mule-validation-module.version>
 		<assertions.version>1.2.1</assertions.version>
 
