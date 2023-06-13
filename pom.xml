@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.28</version>
+	<version>1.0.29</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -35,7 +35,7 @@
 		<maven-enforcer-plugin.version>3.3.0</maven-enforcer-plugin.version>
 		<maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
 		<maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
-		<exchange-mule-maven-plugin.version>0.0.17</exchange-mule-maven-plugin.version>
+		<exchange-mule-maven-plugin.version>0.0.18</exchange-mule-maven-plugin.version>
 
 		<!-- Connectors-->
 		<mule-http-connector.version>1.7.3</mule-http-connector.version>
