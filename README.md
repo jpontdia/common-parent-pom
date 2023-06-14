@@ -1,4 +1,8 @@
 # parent-pom
+![Powered by](https://img.shields.io/badge/Powered%20by-Mulesoft-blue.svg)
+&nbsp;&nbsp;
+![Build and deploy](https://github.com/jpontdia/mule-parent-pom/actions/workflows/build.yml/badge.svg)
+<br>
 Parent POM for Mulesoft applications
 
 ## Table of contents
