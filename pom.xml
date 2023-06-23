@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.30</version>
+	<version>1.0.31</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -37,7 +37,7 @@
 		<maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
 		<exchange-mule-maven-plugin.version>0.0.18</exchange-mule-maven-plugin.version>
 
-		<!-- Connectors-->
+		<!-- Basic connectors and plugins-->
 		<mule-http-connector.version>1.7.3</mule-http-connector.version>
 		<mule-apikit-module.version>1.8.4</mule-apikit-module.version>
 		<mule-tracing-module.version>1.0.0</mule-tracing-module.version>
@@ -47,7 +47,7 @@
 		<mule-validation-module.version>2.0.3</mule-validation-module.version>
 		<assertions.version>1.2.1</assertions.version>
 
-		<!-- Connectors. Mule Metrics Toolkit Application-->
+		<!--Mule Metrics Toolkit Application connectors-->
 		<error.handler.plugin.version>5.1.0</error.handler.plugin.version>
 		<mule-objectstore-connector.version>1.2.1</mule-objectstore-connector.version>
 		<mule-secure-configuration-property-module.version>1.2.5</mule-secure-configuration-property-module.version>
@@ -58,6 +58,8 @@
 		<mule-file-connector.version>1.5.1</mule-file-connector.version>
 
 		<!-- Optional dependencies -->
+		<mule-ftp-connector.version>1.8.3</mule-ftp-connector.version>
+		<mule-sftp-connector.version>1.6.1</mule-sftp-connector.version>
 		<mule-otel-connector.version>1.0.74</mule-otel-connector.version>
 		<mule-salesforce-connector.version>10.17.1</mule-salesforce-connector.version>
 		<log4j-core.version>2.20.0</log4j-core.version>
@@ -65,6 +67,7 @@
 		<logzio-log4j2-appender.version>1.0.18</logzio-log4j2-appender.version>
 		<logzio-sender.version>1.1.7</logzio-sender.version>
 		<json-logger.version>3.0.0</json-logger.version>
+
 
 		<!-- Next property is used when deploying the parent pom file to Anypoint Exchange -->
 		<type>custom</type>
@@ -231,6 +234,20 @@
 	<dependencyManagement>
 		<dependencies>
 
+			<!-- FTP, SFTP connector -->
+			<dependency>
+    			<groupId>org.mule.connectors</groupId>
+    			<artifactId>mule-sftp-connector</artifactId>
+    			<version>${mule-sftp-connector.version}</version>
+				<classifier>mule-plugin</classifier>
+			</dependency>
+			<dependency>
+    			<groupId>org.mule.connectors</groupId>
+    			<artifactId>mule-ftp-connector</artifactId>
+    			<version>${mule-ftp-connector.version}</version>
+				<classifier>mule-plugin</classifier>
+			</dependency>
+
 			<!-- Salesforce connector -->
 			<dependency>
 				<groupId>com.mulesoft.connectors</groupId>
@@ -311,6 +328,8 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- Mandatory dependencies for all projects -->
+
 		<!-- Dependency used for the deployment process (maven-deploy-plugin) -->
 		<dependency>
     		<groupId>org.codehaus.plexus</groupId>

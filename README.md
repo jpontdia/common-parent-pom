@@ -113,6 +113,8 @@ Next are the plugins and dependencies included in the parent POM and the link to
 | Artifact      | Documentation / Versions available |
 | ----------- | ----------- |
 | mule-salesforce-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule-salesforce-connector | 
+| mule-ftp-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-ftp-connector | 
+| mule-sftp-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-sftp-connector | 
 | | https://docs.mulesoft.com/salesforce-connector/10.17 |
 | log4j-core | https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core | 
 | log4j-api | https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api | 
