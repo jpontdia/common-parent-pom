@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.34</version>
+	<version>1.0.35</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -59,7 +59,7 @@
 
 		<!-- Optional dependencies -->
 		<commons-dbcp2.version>2.9.0</commons-dbcp2.version>
-		<derby.version>1.14.1</derby.version>
+		<derby.version>10.14.2.0</derby.version>
 		<log4j-core.version>2.20.0</log4j-core.version>
 		<log4j-api.version>2.20.0</log4j-api.version>
 		<logzio-log4j2-appender.version>1.0.18</logzio-log4j2-appender.version>
