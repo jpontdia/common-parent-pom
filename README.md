@@ -1,7 +1,7 @@
 # parent-pom
 ![Powered by](https://img.shields.io/badge/Powered%20by-Mulesoft-blue.svg)
-&nbsp;&nbsp;
-![Build and deploy](https://github.com/jpontdia/mule-parent-pom/actions/workflows/build.yml/badge.svg)
+  
+![Build and deploy](https://github.com/jpontdia/mulesoft-parent-pom/actions/workflows/build.yml/badge.svg)
 <br>
 Parent POM for Mulesoft applications
 
@@ -112,14 +112,32 @@ Next are the plugins and dependencies included in the parent POM and the link to
 
 | Artifact      | Documentation / Versions available |
 | ----------- | ----------- |
-| mule-salesforce-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule-salesforce-connector | 
-| mule-ftp-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-ftp-connector | 
-| mule-sftp-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-sftp-connector | 
-| | https://docs.mulesoft.com/salesforce-connector/10.17 |
+| derby | https://mvnrepository.com/artifact/org.apache.derby/derby/10.14.2.0 | 
+| | It is dependent on Mule JDK compatibility. This is the last version compatible with jdk8 |
+| commons-dbcp2 | https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 | 
 | log4j-core | https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core | 
 | log4j-api | https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api | 
 | logzio-log4j2-appender | https://mvnrepository.com/artifact/io.logz.log4j2/logzio-log4j2-appender | 
 | logzio-sender | https://mvnrepository.com/artifact/io.logz.sender/logzio-sender | 
+| mule-db-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-db-connector?repo=mulesoft-releases | 
+| mule-ftp-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-ftp-connector | 
+| mule-sftp-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-sftp-connector | 
+| mule-salesforce-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule-salesforce-connector | 
+| | https://docs.mulesoft.com/salesforce-connector/10.18 |
+
+**Spring Framework artifacts**
+All next dependencies have a dependency on the Mulesoft Runtime version
+| Artifact      | Documentation / Versions available |
+| ----------- | ----------- |
+| spring-beans | https://mvnrepository.com/artifact/org.springframework/spring-beans | 
+| spring-core | https://mvnrepository.com/artifact/org.springframework/spring-core | 
+| spring-context | https://mvnrepository.com/artifact/org.springframework/spring-context | 
+| spring-security-config | https://mvnrepository.com/artifact/org.springframework.security/spring-security-config | 
+| spring-security-core | https://mvnrepository.com/artifact/org.springframework.security/spring-security-core | 
+| spring-security-crypto | https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto | 
+| spring-jdbc | https://mvnrepository.com/artifact/org.springframework/spring-jdbc | 
+
+
 
 ## Recommended content
 * [How to work with a parent pom](https://help.mulesoft.com/s/article/How-to-work-with-a-parent-pom)

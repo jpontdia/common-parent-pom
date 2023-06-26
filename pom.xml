@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.31</version>
+	<version>1.0.32</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -58,16 +58,22 @@
 		<mule-file-connector.version>1.5.1</mule-file-connector.version>
 
 		<!-- Optional dependencies -->
-		<mule-ftp-connector.version>1.8.3</mule-ftp-connector.version>
-		<mule-sftp-connector.version>1.6.1</mule-sftp-connector.version>
-		<mule-otel-connector.version>1.0.74</mule-otel-connector.version>
-		<mule-salesforce-connector.version>10.17.1</mule-salesforce-connector.version>
+		<commons-dbcp2.version>2.9.0</commons-dbcp2.version>
+		<derby.version>1.14.1</derby.version>
 		<log4j-core.version>2.20.0</log4j-core.version>
 		<log4j-api.version>2.20.0</log4j-api.version>
 		<logzio-log4j2-appender.version>1.0.18</logzio-log4j2-appender.version>
 		<logzio-sender.version>1.1.7</logzio-sender.version>
 		<json-logger.version>3.0.0</json-logger.version>
-
+		<mule-db-connector.version>1.14.1</mule-db-connector.version>
+		<mule-scripting-module.version>2.0.3</mule-scripting-module.version>
+		<mule-spring-module.version>1.3.7</mule-spring-module.version>
+		<mule-ftp-connector.version>1.8.3</mule-ftp-connector.version>
+		<mule-sftp-connector.version>1.6.1</mule-sftp-connector.version>
+		<mule-otel-connector.version>1.0.74</mule-otel-connector.version>
+		<mule-salesforce-connector.version>10.18.0</mule-salesforce-connector.version>
+		<spring-core.version>5.3.28</spring-core.version>
+		<spring-security.version>5.7.9</spring-security.version>
 
 		<!-- Next property is used when deploying the parent pom file to Anypoint Exchange -->
 		<type>custom</type>
@@ -234,6 +240,14 @@
 	<dependencyManagement>
 		<dependencies>
 
+			<!-- Scripting module -->
+			<dependency>
+				<groupId>org.mule.modules</groupId>
+				<artifactId>mule-scripting-module</artifactId>
+				<version>${mule-scripting-module.version}</version>
+				<classifier>mule-plugin</classifier>
+			</dependency>
+			
 			<!-- FTP, SFTP connector -->
 			<dependency>
     			<groupId>org.mule.connectors</groupId>
@@ -324,6 +338,66 @@
 				<classifier>mule-plugin</classifier>
 			</dependency>
 
+			<!-- Database -->
+			<dependency>
+				<groupId>org.mule.connectors</groupId>
+				<artifactId>mule-db-connector</artifactId>
+				<version>${mule-db-connector.version}</version>
+				<classifier>mule-plugin</classifier>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derby</artifactId>
+				<version>${derby.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-dbcp2</artifactId>
+				<version>${commons-dbcp2.version}</version>
+			</dependency>
+			
+			<!-- Spring Framework -->
+			<dependency>
+				<groupId>org.mule.modules</groupId>
+				<artifactId>mule-spring-module</artifactId>
+				<version>${mule-spring-module.version}</version>
+				<classifier>mule-plugin</classifier>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-config</artifactId>
+				<version>${spring-security.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-crypto</artifactId>
+				<version>${spring-security.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-core</artifactId>
+				<version>${spring-security.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring-core.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
