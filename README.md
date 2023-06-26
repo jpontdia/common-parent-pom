@@ -40,21 +40,100 @@ To compile and build the project:
 <br>
 
 ### Deployment
-Configure settings.xml in your machine with the correct credentials for Anypoint Platform.
-The configuration file used for this parent POM and all the services that implement this artifact is: [settings.xml](
-https://github.com/jpontdia/mule-micorp-pom/blob/main/settings.xml)
+Configure settings.xml in your machine with the correct credentials for Anypoint Platform. The next file uses a connected app to deploy the asset in Anypoint Exchange, more information in: [How to set up your settings.xml and pom.xml using Connected Apps CI/CD without needing to manually retrieve a token](
+https://help.mulesoft.com/s/article/How-to-set-up-your-settings-xml-and-pom-xml-using-Connected-Apps-CI-CD-without-needing-to-manually-retrieve-a-token)
 
 ```xml
-	<servers>
-		<server>
-			<id>anypoint-exchange-v3</id>
-			<username>MY-USER</username>
-			<password>MY-PASSWORD</password>
-		</server>
-	</servers>
+<?xml version='1.0' encoding='UTF-8'?>
+<settings xmlns='http://maven.apache.org/SETTINGS/1.0.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd'>
+   <activeProfiles>
+      <activeProfile>mulesoft</activeProfile>
+   </activeProfiles>
+   <profiles>
+      <profile>
+         <id>mulesoft</id>
+         <repositories>
+            <repository>
+               <id>anypoint-exchange-v3</id>
+               <name>Assets for your anypoint organization</name>
+               <url>https://maven.anypoint.mulesoft.com/api/v3/maven/</url>
+            </repository>
+            <repository>
+               <snapshots>
+                  <enabled>false</enabled>
+               </snapshots>
+               <id>central</id>
+               <name>maven-central</name>
+               <url>https://repo1.maven.org/maven2/</url>
+            </repository>
+            <repository>
+               <id>mulesoft-releases</id>
+               <name>mulesoft-releases</name>
+               <url>https://repository-master.mulesoft.org/releases/</url>
+            </repository>
+            <repository>
+               <id>mulesoft-snapshots</id>
+               <name>MuleSoft Snapshot Repository</name>
+               <url>https://repository-master.mulesoft.org/snapshots/</url>
+            </repository>
+            <repository>
+               <id>mulesoft-enterprise-repository</id>
+               <name>MuleSoft Enterprise Repository</name>
+               <url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
+            </repository>
+            <repository>
+               <id>mulesoft-nexus-public</id>
+               <name>Mulesoft Nexus Public Repository</name>
+               <url>https://repository.mulesoft.org/nexus/content/repositories/public</url>
+            </repository>
+         </repositories>
+         <pluginRepositories>
+            <pluginRepository>
+               <id>mulesoft-plugins</id>
+               <name>Mulesoft plugins-release</name>
+               <url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
+            </pluginRepository>
+            <pluginRepository>
+               <id>central-plugins</id>
+               <name>plugins-release</name>
+               <url>https://repo1.maven.org/maven2</url>
+            </pluginRepository>
+            <pluginRepository>
+               <id>mulesoft-snapshots</id>
+               <name>MuleSoft Snapshot Repository</name>
+               <url>https://repository-master.mulesoft.org/snapshots/</url>
+            </pluginRepository>
+            <pluginRepository>
+               <id>mulesoft-plugins-release</id>
+               <name>Mulesoft plugins-release</name>
+               <url>https://repository.mulesoft.org/releases/</url>
+               <snapshots>
+                  <enabled>false</enabled>
+                  <updatePolicy>always</updatePolicy>
+                  <checksumPolicy>fail</checksumPolicy>
+               </snapshots>
+            </pluginRepository>
+         </pluginRepositories>
+      </profile>
+   </profiles>
+   <servers>
+      <server>
+         <id>anypoint-exchange-v3</id>
+         <username>~~~Client~~~</username>
+         <password>$cicd_connectedapp_clientid~?~$cicd_connectedapp_secret</password>
+      </server>
+      <server>
+         <id>mulesoft-enterprise-repository</id>
+         <username>$mulesoft_nexus_ee_user</username>
+         <password>$mulesoft_nexus_ee_password</password>
+      </server>
+   </servers>
+   <mirrors />
+   <pluginGroups />
+   <proxies />
+</settings>
 ```
 
-The "id" element must be the same between settings.xml and the repository defined in pom.xml.
 Deploy the pom changes to the maven repository for your Anypoint platform, from the command line type:
 
 ```xml
@@ -125,7 +204,9 @@ Next are the plugins and dependencies included in the parent POM and the link to
 | | https://docs.mulesoft.com/salesforce-connector/10.18 |
 
 **Spring Framework artifacts**
-All next dependencies have a dependency on the Mulesoft Runtime version
+
+All next dependencies have a dependency on the Mulesoft Runtime version, so they shoud not be updated to the latest available version
+
 | Artifact      | Documentation / Versions available |
 | ----------- | ----------- |
 | spring-beans | https://mvnrepository.com/artifact/org.springframework/spring-beans | 
@@ -135,8 +216,6 @@ All next dependencies have a dependency on the Mulesoft Runtime version
 | spring-security-core | https://mvnrepository.com/artifact/org.springframework.security/spring-security-core | 
 | spring-security-crypto | https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto | 
 | spring-jdbc | https://mvnrepository.com/artifact/org.springframework/spring-jdbc | 
-
-
 
 ## Recommended content
 * [How to work with a parent pom](https://help.mulesoft.com/s/article/How-to-work-with-a-parent-pom)
