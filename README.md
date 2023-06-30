@@ -1,16 +1,32 @@
-# parent-pom
+# mulesoft-parent-pom
 ![Powered by](https://img.shields.io/badge/Powered%20by-Mulesoft-blue.svg)
   ![Build and deploy](https://github.com/jpontdia/mulesoft-parent-pom/actions/workflows/build.yml/badge.svg)
 <br>
+
 Parent POM for Mulesoft applications
 
 ## Table of contents
+1. [Description](#description)
 1. [Using the parent POM](#usinge-the-parent-pom)
 1. [Deployment in Anypoint](#deployment-in-anypoint-exchange)
     - [Prerequisites](#prerequisites)
     - [Deployment](#deployment)
 3. [List of plugins and dependencies](#list-of-plugins-and-dependencies)
 1. [Recommended content](#recommended-content)
+
+<br>  
+
+## Description
+
+In Maven, a parent POM is a concept that allows you to define a common configuration and set of dependencies for multiple related projects within an organization or a software development team. It promotes code reuse and consistency across projects.
+
+The parent POM acts as a blueprint or a template for child projects. It defines common configuration elements such as project version, organization details, build settings, and repositories. It also includes dependency management sections where you can define the shared dependencies required by all child projects. This allows you to centrally manage the versions and configurations of shared libraries and frameworks.
+
+When you create a new Maven project, you can specify a parent POM from which the new project inherits its configuration. The child project can then override or extend the configuration inherited from the parent POM as needed. By inheriting from a parent POM, the child projects automatically adopt the common settings defined in the parent, reducing duplication and making it easier to maintain consistency across the project ecosystem.
+
+In addition to configuration inheritance, the parent POM can also define common build plugins, profiles, and other build-related configurations that are shared among multiple projects.
+
+To summarize, a Maven parent POM provides a way to define and share common configuration, dependencies, and build settings across multiple projects, enabling consistency, code reuse, and centralized management of project-related settings.
 
 <br>  
 
@@ -21,7 +37,7 @@ section in the child `pom.xml` as follows:
 	<parent>
 		<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 		<artifactId>parent-pom</artifactId>
-		<version>1.0.1</version>
+		<version>1.0.35</version>
 		<relativePath/>
 	</parent>
 ``` 
