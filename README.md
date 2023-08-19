@@ -3,7 +3,7 @@
   ![Build and deploy](https://github.com/jpontdia/mulesoft-parent-pom/actions/workflows/build.yml/badge.svg)
 <br>
 
-Parent POM for Mulesoft applications 
+Parent POM for Mulesoft applications
 
   > This project follows the standards defined in the Development Process Document in Anypoint Exchange. The details to compile and package the asset are in the Build Environment section. 
 
