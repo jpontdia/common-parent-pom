@@ -24,7 +24,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- Exchange documentation -->
-		<fields key="sourceCode">https://github.com/jpontdia/cofm-mule-parentpom</fields>
+		<fields key="sourceCode">https://github.com/jpontdia/mule-common-parent-pom/</fields>
 		<categories key="Asset type">Common</categories>
 		<tags>POM, Common</tags>
 

@@ -1,11 +1,11 @@
-# mulesoft-parent-pom
+# common-parent-pom
 ![Powered by](https://img.shields.io/badge/Powered%20by-Mulesoft-blue.svg)
   ![Build and deploy](https://github.com/jpontdia/mulesoft-parent-pom/actions/workflows/build.yml/badge.svg)
 <br>
 
-  > This project follows the standards defined in the Development Process Document in Anypoint Exchange. The details to compile and package the asset are in the Build Environment section. 
-
 Parent POM for Mulesoft applications
+
+  > This project follows the standards defined in the Development Process Document in Anypoint Exchange. The details to compile and package the asset are in the Build Environment section. 
 
 ## Table of contents
 1. [Description](#description)
