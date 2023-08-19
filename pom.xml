@@ -4,24 +4,32 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>parent-pom</artifactId>
-	<version>1.0.36</version>
+	<version>1.0.38</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
 	<name>parent-pom</name>
 	<description>Parent POM for Mulesoft applications</description>
 
-	<!-- ***************************************************************************** -->
-	<!-- ** This POM file doesn't work with maven 3.9.X due to mule-maven-plugin                          ** -->
-	<!-- ***************************************************************************** -->
+	<!-- 
+	******************************************************************************************
+	This POM file doesn't work with maven 3.9.X due to mule-maven-plugin
+	https://docs.mulesoft.com/release-notes/mule-maven-plugin/mule-maven-plugin-release-notes        
+	******************************************************************************************
+	-->
 
 	<properties>
     	<!-- Project properties -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+		<!-- Exchange documentation -->
+		<fields key="sourceCode">https://github.com/jpontdia/cofm-mule-parentpom</fields>
+		<categories key="Asset type">Library</categories>
+		<tags>POM, Library</tags>
+
 		<!-- https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.4.0-release-notes -->
-		<app.runtime>4.4.0-20230320</app.runtime>
+		<app.runtime>4.4.0-20230724</app.runtime>
 
 		<!-- Code coverage settings -->
 		<codecoverage.flow>20</codecoverage.flow>
@@ -29,13 +37,11 @@
 		<codecoverage.application>80</codecoverage.application>
 
 		<!-- Plugins -->
-		<maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
-		<plexus-utils.version>3.5.1</plexus-utils.version>
-		<mule-maven-plugin.version>3.8.5</mule-maven-plugin.version>
+		<mule-maven-plugin.version>3.8.7</mule-maven-plugin.version>
 		<maven-enforcer-plugin.version>3.3.0</maven-enforcer-plugin.version>
 		<maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
 		<maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
-		<exchange-mule-maven-plugin.version>0.0.18</exchange-mule-maven-plugin.version>
+		<exchange-mule-maven-plugin.version>0.0.20</exchange-mule-maven-plugin.version>
 
 		<!-- Basic connectors and plugins-->
 		<mule-http-connector.version>1.7.3</mule-http-connector.version>
@@ -65,8 +71,10 @@
 		<logzio-log4j2-appender.version>1.0.18</logzio-log4j2-appender.version>
 		<logzio-sender.version>1.1.7</logzio-sender.version>
 		<json-logger.version>3.0.0</json-logger.version>
+		<mssql-jdbc.version>12.2.0.jre8</mssql-jdbc.version>
 		<mule-db-connector.version>1.14.1</mule-db-connector.version>
 		<mule-scripting-module.version>2.0.3</mule-scripting-module.version>
+		<mule4-snowflake-connector.version>1.1.2</mule4-snowflake-connector.version>
 		<mule-spring-module.version>1.3.7</mule-spring-module.version>
 		<mule-ftp-connector.version>1.8.3</mule-ftp-connector.version>
 		<mule-sftp-connector.version>1.6.1</mule-sftp-connector.version>
@@ -81,11 +89,6 @@
 
 	<build>
     	<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-    			<artifactId>maven-deploy-plugin</artifactId>
-    			<version>${maven-deploy-plugin.version}</version>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -150,9 +153,9 @@
 							<format>html</format>
 						</formats>
 						<ignoreFiles>
-							<!-- *********************************-->
-							<!-- micorp-commons                   -->
-							<!-- *********************************-->
+							<!-- **************************-->
+							<!-- commons                   -->
+							<!-- **************************-->
 							<!-- Error Handling -->
 							<ignoreFile>global-error.xml</ignoreFile>
 						</ignoreFiles>						
@@ -355,6 +358,16 @@
 				<artifactId>commons-dbcp2</artifactId>
 				<version>${commons-dbcp2.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.microsoft.sqlserver</groupId>
+				<artifactId>mssql-jdbc</artifactId>
+				<version>${mssql-jdbc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mulesoft.connectors</groupId>
+				<artifactId>mule4-snowflake-connector</artifactId>
+				<version>${mule4-snowflake-connector.version}</version>
+			</dependency>
 			
 			<!-- Spring Framework -->
 			<dependency>
@@ -403,13 +416,6 @@
 
 	<dependencies>
 		<!-- Mandatory dependencies for all projects -->
-
-		<!-- Dependency used for the deployment process (maven-deploy-plugin) -->
-		<dependency>
-    		<groupId>org.codehaus.plexus</groupId>
-    		<artifactId>plexus-utils</artifactId>
-    		<version>${plexus-utils.version}</version>
-		</dependency>
 
 		<!-- Mule connectors: HTTP, ApiKit, Secure properties, etc -->
 		<dependency>
@@ -493,6 +499,11 @@
 			<id>anypoint-exchange-v3</id>
 			<name>Assets for your anypoint organization</name>
 			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
+
+			<!-- GovCloud
+			<url>https://maven.gov.anypoint.mulesoft.com/api/v2/organizations/${project.groupId}/maven</url>
+			-->
+
 			<layout>default</layout>
 		</repository>
 	</distributionManagement>

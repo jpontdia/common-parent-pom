@@ -3,15 +3,15 @@
   ![Build and deploy](https://github.com/jpontdia/mulesoft-parent-pom/actions/workflows/build.yml/badge.svg)
 <br>
 
+  > This project follows the standards defined in the Development Process Document in Anypoint Exchange. The details to compile and package the asset are in the Build Environment section. 
+
 Parent POM for Mulesoft applications
 
 ## Table of contents
 1. [Description](#description)
 1. [Using the parent POM](#usinge-the-parent-pom)
-1. [Deployment in Anypoint](#deployment-in-anypoint-exchange)
-    - [Prerequisites](#prerequisites)
-    - [Deployment](#deployment)
-3. [List of plugins and dependencies](#list-of-plugins-and-dependencies)
+1. [Runtime upgrade](#runtime-upgrade)
+1. [List of plugins and dependencies](#list-of-plugins-and-dependencies)
 1. [Recommended content](#recommended-content)
 
 <br>  
@@ -44,116 +44,19 @@ section in the child `pom.xml` as follows:
 
 Update the element `version` to match the latest release available.
 
-## Deployment in Anypoint Exchange
+<br> 
 
-### Prerequisites
-To compile and build the project:
+## Runtime upgrade
 
- - Java Development Kit (JDK) 8
- - Apache Maven, version 3.8 or later.
- - Anypoint account credentials
+In the next links, We have the latest release for the Mulesoft Runtime that we must update in our pom file to run the test cases against the latest version:
 
-<br>
+- https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.4.0-release-notes.
+- https://repository-master.mulesoft.org/nexus/content/repositories/ci-releases/com/mulesoft/mule/distributions/mule-ee-distribution-standalone/
 
-### Deployment
-Configure settings.xml in your machine with the correct credentials for Anypoint Platform. The next file uses a connected app to deploy the asset in Anypoint Exchange, more information in: [How to set up your settings.xml and pom.xml using Connected Apps CI/CD without needing to manually retrieve a token](
-https://help.mulesoft.com/s/article/How-to-set-up-your-settings-xml-and-pom-xml-using-Connected-Apps-CI-CD-without-needing-to-manually-retrieve-a-token)
+Update the runtime in the next section of the pom file, example:
 
 ```xml
-<?xml version='1.0' encoding='UTF-8'?>
-<settings xmlns='http://maven.apache.org/SETTINGS/1.0.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd'>
-   <activeProfiles>
-      <activeProfile>mulesoft</activeProfile>
-   </activeProfiles>
-   <profiles>
-      <profile>
-         <id>mulesoft</id>
-         <repositories>
-            <repository>
-               <id>anypoint-exchange-v3</id>
-               <name>Assets for your anypoint organization</name>
-               <url>https://maven.anypoint.mulesoft.com/api/v3/maven/</url>
-            </repository>
-            <repository>
-               <snapshots>
-                  <enabled>false</enabled>
-               </snapshots>
-               <id>central</id>
-               <name>maven-central</name>
-               <url>https://repo1.maven.org/maven2/</url>
-            </repository>
-            <repository>
-               <id>mulesoft-releases</id>
-               <name>mulesoft-releases</name>
-               <url>https://repository-master.mulesoft.org/releases/</url>
-            </repository>
-            <repository>
-               <id>mulesoft-snapshots</id>
-               <name>MuleSoft Snapshot Repository</name>
-               <url>https://repository-master.mulesoft.org/snapshots/</url>
-            </repository>
-            <repository>
-               <id>mulesoft-enterprise-repository</id>
-               <name>MuleSoft Enterprise Repository</name>
-               <url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
-            </repository>
-            <repository>
-               <id>mulesoft-nexus-public</id>
-               <name>Mulesoft Nexus Public Repository</name>
-               <url>https://repository.mulesoft.org/nexus/content/repositories/public</url>
-            </repository>
-         </repositories>
-         <pluginRepositories>
-            <pluginRepository>
-               <id>mulesoft-plugins</id>
-               <name>Mulesoft plugins-release</name>
-               <url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>
-            </pluginRepository>
-            <pluginRepository>
-               <id>central-plugins</id>
-               <name>plugins-release</name>
-               <url>https://repo1.maven.org/maven2</url>
-            </pluginRepository>
-            <pluginRepository>
-               <id>mulesoft-snapshots</id>
-               <name>MuleSoft Snapshot Repository</name>
-               <url>https://repository-master.mulesoft.org/snapshots/</url>
-            </pluginRepository>
-            <pluginRepository>
-               <id>mulesoft-plugins-release</id>
-               <name>Mulesoft plugins-release</name>
-               <url>https://repository.mulesoft.org/releases/</url>
-               <snapshots>
-                  <enabled>false</enabled>
-                  <updatePolicy>always</updatePolicy>
-                  <checksumPolicy>fail</checksumPolicy>
-               </snapshots>
-            </pluginRepository>
-         </pluginRepositories>
-      </profile>
-   </profiles>
-   <servers>
-      <server>
-         <id>anypoint-exchange-v3</id>
-         <username>~~~Client~~~</username>
-         <password>$cicd_connectedapp_clientid~?~$cicd_connectedapp_secret</password>
-      </server>
-      <server>
-         <id>mulesoft-enterprise-repository</id>
-         <username>$mulesoft_nexus_ee_user</username>
-         <password>$mulesoft_nexus_ee_password</password>
-      </server>
-   </servers>
-   <mirrors />
-   <pluginGroups />
-   <proxies />
-</settings>
-```
-
-Deploy the pom changes to the maven repository for your Anypoint platform, from the command line type:
-
-```xml
-mvn deploy
+		<app.runtime>4.4.0-20230724</app.runtime>
 ```
 
 <br>
@@ -165,9 +68,9 @@ Next are the plugins and dependencies included in the parent POM and the link to
 
 | Artifact      | Documentation / Versions available |
 | ----------- | ----------- |
-| maven-deploy-plugin      | [https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin](https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin)       
 | mule-maven-plugin | https://mvnrepository.com/artifact/org.mule.tools.maven/mule-maven-plugin?repo=mulesoft-public | 
 | | https://docs.mulesoft.com/release-notes/mule-maven-plugin/mule-maven-plugin-release-notes | 
+| | https://help.mulesoft.com/s/article/Issues-with-Maven-3-9-0-when-deploying | 
 | maven-enforcer-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin | 
 | maven-resources-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin | 
 | maven-clean-plugin | https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin | 
@@ -181,6 +84,7 @@ Next are the plugins and dependencies included in the parent POM and the link to
 | mule-apikit-module | https://mvnrepository.com/artifact/org.mule.modules/mule-apikit-module?repo=mulesoft-releases | 
 | mule-tracing-module | https://mvnrepository.com/artifact/org.mule.modules/mule-tracing-module?repo=mulesoft-releases | 
 | munit-maven-plugin | https://mvnrepository.com/artifact/com.mulesoft.munit.tools/munit-maven-plugin?repo=mulesoft-releases | 
+| | https://docs.mulesoft.com/release-notes/mule-maven-plugin/mule-maven-plugin-release-notes |
 | munit-tools | https://mvnrepository.com/artifact/com.mulesoft.munit/munit-tools?repo=mulesoft-releases | 
 | munit-runner | https://mvnrepository.com/artifact/com.mulesoft.munit/munit-runner |
 | mule-validation-module | https://mvnrepository.com/artifact/org.mule.modules/mule-validation-module?repo=mulesoft-public |
@@ -213,9 +117,11 @@ Next are the plugins and dependencies included in the parent POM and the link to
 | log4j-api | https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api | 
 | logzio-log4j2-appender | https://mvnrepository.com/artifact/io.logz.log4j2/logzio-log4j2-appender | 
 | logzio-sender | https://mvnrepository.com/artifact/io.logz.sender/logzio-sender | 
+| mssql-jdbc | https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc | 
 | mule-db-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-db-connector?repo=mulesoft-releases | 
 | mule-ftp-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-ftp-connector | 
 | mule-sftp-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-sftp-connector | 
+| mule4-snowflake-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule4-snowflake-connector | 
 | mule-salesforce-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule-salesforce-connector | 
 | | https://docs.mulesoft.com/salesforce-connector/10.18 |
 
