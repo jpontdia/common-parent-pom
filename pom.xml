@@ -25,8 +25,8 @@
 
 		<!-- Exchange documentation -->
 		<fields key="sourceCode">https://github.com/jpontdia/cofm-mule-parentpom</fields>
-		<categories key="Asset type">Library</categories>
-		<tags>POM, Library</tags>
+		<categories key="Asset type">Common</categories>
+		<tags>POM, Common</tags>
 
 		<!-- https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.4.0-release-notes -->
 		<app.runtime>4.4.0-20230724</app.runtime>
