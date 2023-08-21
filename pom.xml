@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -122,7 +122,7 @@
 				<version>${mule-maven-plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<classifier>mule-application</classifier>
+					<classifier>mule-application-example</classifier>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -153,12 +153,13 @@
 							<format>html</format>
 						</formats>
 						<ignoreFiles>
-							<!-- **************************-->
-							<!-- commons                   -->
-							<!-- **************************-->
-							<!-- Error Handling 
-							<ignoreFile>global-error.xml</ignoreFile>
+							<!-- 
+							**********************************************************************
+							common-core
+							- Avoid to re-test a shared flow when is referenced in a child project
+							**********************************************************************
 							-->
+							<ignoreFile>global-error.xml</ignoreFile>
 						</ignoreFiles>						
 					</coverage>
 				</configuration>
