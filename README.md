@@ -36,8 +36,8 @@ section in the child `pom.xml` as follows:
 ```xml
 	<parent>
 		<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
-		<artifactId>parent-pom</artifactId>
-		<version>1.0.35</version>
+		<artifactId>common-parent-pom</artifactId>
+		<version>1.0.0</version>
 		<relativePath/>
 	</parent>
 ``` 
@@ -50,7 +50,7 @@ Update the element `version` to match the latest release available.
 
 In the next links, We have the latest release for the Mulesoft Runtime that we must update in our pom file to run the test cases against the latest version:
 
-- https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.4.0-release-notes.
+- https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.4.0-release-notes
 - https://repository-master.mulesoft.org/nexus/content/repositories/ci-releases/com/mulesoft/mule/distributions/mule-ee-distribution-standalone/
 
 Update the runtime in the next section of the pom file, example:
