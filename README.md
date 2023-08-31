@@ -56,7 +56,7 @@ In the next links, We have the latest release for the Mulesoft Runtime that we m
 Update the runtime in the next section of the pom file, example:
 
 ```xml
-		<app.runtime>4.4.0-20230724</app.runtime>
+		<app.runtime>4.4.0-20230822</app.runtime>
 ```
 
 <br>

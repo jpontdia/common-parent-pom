@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -29,7 +29,7 @@
 		<tags>POM, Common</tags>
 
 		<!-- https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.4.0-release-notes -->
-		<app.runtime>4.4.0-20230724</app.runtime>
+		<app.runtime>4.4.0-20230822</app.runtime>
 
 		<!-- Code coverage settings -->
 		<codecoverage.flow>20</codecoverage.flow>
@@ -45,12 +45,12 @@
 
 		<!-- Basic connectors and plugins-->
 		<mule-http-connector.version>1.7.3</mule-http-connector.version>
-		<mule-apikit-module.version>1.8.4</mule-apikit-module.version>
+		<mule-apikit-module.version>1.9.1</mule-apikit-module.version>
 		<mule-tracing-module.version>1.0.0</mule-tracing-module.version>
 		<munit-maven-plugin.version>2.3.16</munit-maven-plugin.version>
-		<munit-tools.version>2.3.16</munit-tools.version>
-		<munit-runner.version>2.3.16</munit-runner.version>
-		<mule-validation-module.version>2.0.3</mule-validation-module.version>
+		<munit-tools.version>2.3.18</munit-tools.version>
+		<munit-runner.version>2.3.18</munit-runner.version>
+		<mule-validation-module.version>2.0.5</mule-validation-module.version>
 		<assertions.version>1.2.1</assertions.version>
 
 		<!--Mule Metrics Toolkit Application connectors-->
@@ -79,7 +79,7 @@
 		<mule-ftp-connector.version>1.8.3</mule-ftp-connector.version>
 		<mule-sftp-connector.version>1.6.1</mule-sftp-connector.version>
 		<mule-otel-connector.version>1.0.74</mule-otel-connector.version>
-		<mule-salesforce-connector.version>10.18.0</mule-salesforce-connector.version>
+		<mule-salesforce-connector.version>10.18.3</mule-salesforce-connector.version>
 		<spring-core.version>5.3.28</spring-core.version>
 		<spring-security.version>5.7.9</spring-security.version>
 
