@@ -124,6 +124,7 @@ Next are the plugins and dependencies included in the parent POM and the link to
 | mule4-snowflake-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule4-snowflake-connector | 
 | mule-salesforce-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule-salesforce-connector | 
 | | https://docs.mulesoft.com/salesforce-connector/10.18 |
+| mule-email-connector| https://mvnrepository.com/artifact/org.mule.connectors/mule-email-connector?repo=mulesoft-releases | 
 
 **Spring Framework artifacts**
 
