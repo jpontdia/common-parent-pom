@@ -1,6 +1,7 @@
 # common-parent-pom
-![Powered by](https://img.shields.io/badge/Powered%20by-Mulesoft-blue.svg)
-  ![Build and deploy](https://github.com/jpontdia/mulesoft-parent-pom/actions/workflows/build.yml/badge.svg)
+![Powered by](https://img.shields.io/badge/Powered%20by-Mulesoft-535597.svg)
+  ![Build](https://github.com/jpontdia/common-core/actions/workflows/build.yml/badge.svg)
+  ![Build job](https://gist.githubusercontent.com/jpontdia/2f22ca2ddf1ba473d6e2cff61cc2fba9/raw/common-parent-pom-wf.svg)
 <br>
 
 Parent POM for Mulesoft applications
