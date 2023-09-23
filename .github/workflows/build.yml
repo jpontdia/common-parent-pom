@@ -9,7 +9,7 @@ jobs:
   Mulesoft:
     uses: jpontdia/common-devops/.github/workflows/mule-build.yml@main
     with:
-      keyvault-key: jpworks-keyvault
+      keyvault-key: CoveredCA-KV-Mulesoft
     secrets:
       azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
     
