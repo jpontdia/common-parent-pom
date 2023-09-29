@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.9</version>
+	<version>1.0.10</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -41,7 +41,7 @@
 		<maven-enforcer-plugin.version>3.3.0</maven-enforcer-plugin.version>
 		<maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
 		<maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
-		<exchange-mule-maven-plugin.version>0.0.20</exchange-mule-maven-plugin.version>
+		<exchange-mule-maven-plugin.version>0.0.21</exchange-mule-maven-plugin.version>
 
 		<!-- Basic connectors and plugins-->
 		<mule-http-connector.version>1.7.3</mule-http-connector.version>
@@ -312,12 +312,6 @@
 				<artifactId>logzio-sender</artifactId>
 				<version>${logzio-sender.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
-				<artifactId>json-logger</artifactId>
-				<version>${json-logger.version}</version>
-				<classifier>mule-plugin</classifier>
-			</dependency>
 
 			<!-- Mule Metrics Toolkit Application -->
 			<dependency>
@@ -512,7 +506,11 @@
 			<name>Assets for your anypoint organization</name>
 			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
 
-			<!-- GovCloud
+			<!-- MuleSoft EU Cloud
+			<url>https://maven.eu1.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
+			-->
+
+			<!-- MuleSoft Government Cloud
 			<url>https://maven.gov.anypoint.mulesoft.com/api/v2/organizations/${project.groupId}/maven</url>
 			-->
 

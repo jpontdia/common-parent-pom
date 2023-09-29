@@ -13,6 +13,7 @@ Parent POM for Mulesoft applications
 1. [Using the parent POM](#usinge-the-parent-pom)
 1. [Runtime upgrade](#runtime-upgrade)
 1. [List of plugins and dependencies](#list-of-plugins-and-dependencies)
+1. [Installation in your organization](#Installation)
 1. [Recommended content](#recommended-content)
 
 <br>  
@@ -34,6 +35,7 @@ To summarize, a Maven parent POM provides a way to define and share common confi
 ## Using the parent POM
 To use the parent POM in any of the child projects, specify the `parent`
 section in the child `pom.xml` as follows:
+
 ```xml
 	<parent>
 		<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
@@ -140,6 +142,95 @@ All next dependencies have a dependency on the Mulesoft Runtime version, so they
 | spring-security-core | https://mvnrepository.com/artifact/org.springframework.security/spring-security-core | 
 | spring-security-crypto | https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto | 
 | spring-jdbc | https://mvnrepository.com/artifact/org.springframework/spring-jdbc | 
+
+## Installation
+
+Follow the following steps to install this asset in your organization.
+
+### pom.xml changes:
+
+**Update the groupId with your organization ID**
+
+Example:
+```xml
+    <groupId>078eefffa-d139-48ed-92f5-f8d4a0592374</groupId>
+    <artifactId>common-parent-pom</artifactId>
+    <version>1.0.1</version>
+    <packaging>pom</packaging>
+``` 
+**Update the distributionManagement section**
+
+1) Update the Mulesoft cloud
+2) Set the name of the repository ID, the default name is anypoint-exchange-v3
+
+```xml
+	<distributionManagement>
+		<repository>
+			<!-- Commercial version: Cloudhub -->
+
+			<id>anypoint-exchange-v3</id>
+			<name>Assets for your anypoint organization</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
+
+			<!-- MuleSoft EU Cloud
+			<url>https://maven.eu1.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
+			-->
+
+			<!-- MuleSoft Government Cloud
+			<url>https://maven.gov.anypoint.mulesoft.com/api/v2/organizations/${project.groupId}/maven</url>
+			-->
+
+			<layout>default</layout>
+		</repository>
+	</distributionManagement>
+``` 
+
+### settings.xml changes:
+
+1) The repository id from the pom.xml distributionManagement must be declared in this file
+
+Example:
+
+```xml
+   <profiles>
+      <profile>
+         <id>mulesoft</id>
+         <repositories>
+            <repository>
+               <id>anypoint-exchange-v3</id>
+               <name>Assets for your anypoint organization</name>
+               <url>https://maven.anypoint.mulesoft.com/api/v3/maven/</url>
+            </repository>
+			...
+			...
+		<repositories>
+      <profile>
+   <profiles>
+
+``` 
+
+Provide the credentials to authenticate to the Anypoint Platform, the following example uses a connected app.
+
+```xml
+   <servers>
+      <server>
+        <id>anypoint-exchange-v3</id>
+        <username>~~~Client~~~</username>
+        <password>6bbbbbbbf5624373b94775e9b17XXXXX~?~8302aaaaa92B436EB64829567eBXXXX</password>      </server>
+      <server>
+         <id>mulesoft-enterprise-repository</id>
+         <username>MYUSER</username>
+         <password>MYPASSWORD</password>
+      </server>
+   </servers>
+``` 
+
+A complete example of the settings file is provided in the repository, and the file name is settings-maven.xml
+
+**Connected App**
+
+The connected app must have the role Exchange Contributor or the role Exchange Administrator.
+
 
 ## Recommended content
 * [How to work with a parent pom](https://help.mulesoft.com/s/article/How-to-work-with-a-parent-pom)
