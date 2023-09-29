@@ -145,7 +145,7 @@ All next dependencies have a dependency on the Mulesoft Runtime version, so they
 
 ## Installation
 
-Follow the following steps to install this asset in your organization.
+Follow the next steps to install this asset in your organization.
 
 ### pom.xml changes:
 
@@ -201,8 +201,8 @@ Example:
                <name>Assets for your anypoint organization</name>
                <url>https://maven.anypoint.mulesoft.com/api/v3/maven/</url>
             </repository>
-			...
-			...
+            ...
+            ...
 		<repositories>
       <profile>
    <profiles>
@@ -225,7 +225,7 @@ Provide the credentials to authenticate to the Anypoint Platform, the following 
    </servers>
 ``` 
 
-A complete example of the settings file is provided in the repository, and the file name is settings-maven.xml
+A complete example of the settings file is provided in the repository, and the file name is settings-example.xml
 
 **Connected App**
 
