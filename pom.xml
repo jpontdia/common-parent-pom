@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.11</version>
+	<version>1.0.12</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -39,6 +39,9 @@
 		<!-- Plugins -->
 		<mule-maven-plugin.version>3.8.7</mule-maven-plugin.version>
 		<maven-enforcer-plugin.version>3.4.1</maven-enforcer-plugin.version>
+		<maven-site-plugin.version>4.0.0-M9</maven-site-plugin.version>
+		<maven-project-info-reports-plugin.version>3.4.5</maven-project-info-reports-plugin.version>
+		<versions-maven-plugin.version>2.16.1</versions-maven-plugin.version>
 		<maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
 		<maven-clean-plugin.version>3.3.1</maven-clean-plugin.version>
 		<exchange-mule-maven-plugin.version>0.0.21</exchange-mule-maven-plugin.version>
@@ -223,11 +226,21 @@
                 <inherited>false</inherited>
 	        </plugin>
 
+			<!-- ********************************************-->
+			<!-- Maven Project Documentation plugins **      -->
+			<!-- Creates a project site, dir: ./target/site  -->
+			<!--   mvn site  (get all reports)               -->
+			<!-- Only the analysis for updated dependencies: -->
+			<!--   mvn versions:display-dependency-updates   -->
+			<!--   mvn versions:display-plugin-updates       -->
+			<!--   mvn versions:display-property-updates     -->
+			<!-- ********************************************-->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.16.1</version>
+				<version>${versions-maven-plugin.version}</version>
 				<configuration>
+
 					<!-- Ignore alpha and JDK 11 dependencies -->
 					<ignoredVersions>.*-alpha.*,.*jre11</ignoredVersions>
 					<ruleSet>
@@ -283,18 +296,20 @@
 						</rules>
 					</ruleSet>
 				</configuration>
-				<!--
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>dependency-updates-report</report>
-							<report>plugin-updates-report</report>
-							<report>property-updates-report</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-				-->
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>${maven-site-plugin.version}</version>
+			</plugin>
+
+      		<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-project-info-reports-plugin</artifactId>
+        		<version>${maven-project-info-reports-plugin.version}</version>
+      		</plugin>
+
 		</plugins>
 		
 		<!-- Enable referencing of Maven properties in Mule config files -->
@@ -320,6 +335,28 @@
 			 -->
 		</resources>
 	</build>
+
+	<!-- ********************************************************-->
+	<!-- Next configuration is part of the Documentation plugins -->
+	<!-- ********************************************************-->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>${versions-maven-plugin.version}</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>dependency-updates-report</report>
+							<report>plugin-updates-report</report>
+							<report>property-updates-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
 
 	<dependencyManagement>
 		<dependencies>
