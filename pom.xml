@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.10</version>
+	<version>1.0.11</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -38,50 +38,56 @@
 
 		<!-- Plugins -->
 		<mule-maven-plugin.version>3.8.7</mule-maven-plugin.version>
-		<maven-enforcer-plugin.version>3.3.0</maven-enforcer-plugin.version>
+		<maven-enforcer-plugin.version>3.4.1</maven-enforcer-plugin.version>
 		<maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
-		<maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
+		<maven-clean-plugin.version>3.3.1</maven-clean-plugin.version>
 		<exchange-mule-maven-plugin.version>0.0.21</exchange-mule-maven-plugin.version>
 
 		<!-- Basic connectors and plugins-->
 		<mule-http-connector.version>1.7.3</mule-http-connector.version>
 		<mule-apikit-module.version>1.9.1</mule-apikit-module.version>
 		<mule-tracing-module.version>1.0.0</mule-tracing-module.version>
-		<munit-maven-plugin.version>2.3.16</munit-maven-plugin.version>
+		<munit-maven-plugin.version>2.3.18</munit-maven-plugin.version>
 		<munit-tools.version>2.3.18</munit-tools.version>
 		<munit-runner.version>2.3.18</munit-runner.version>
 		<mule-validation-module.version>2.0.5</mule-validation-module.version>
-		<assertions.version>1.2.1</assertions.version>
+		<assertions.version>1.2.2</assertions.version>
 
 		<!--Mule Metrics Toolkit Application connectors-->
 		<error.handler.plugin.version>5.1.0</error.handler.plugin.version>
 		<mule-objectstore-connector.version>1.2.1</mule-objectstore-connector.version>
 		<mule-secure-configuration-property-module.version>1.2.5</mule-secure-configuration-property-module.version>
 		<mule-custom-metrics-extension.version>2.2.0</mule-custom-metrics-extension.version>
-		<mule-sfdc-analytics-connector.version>3.12.0</mule-sfdc-analytics-connector.version>
+		<mule-sfdc-analytics-connector.version>3.13.1</mule-sfdc-analytics-connector.version>
 		<mule-mongodb-connector.version>6.3.7</mule-mongodb-connector.version>
 		<mongodb-driver-legacy.version>4.9.1/</mongodb-driver-legacy.version>
 		<mule-file-connector.version>1.5.1</mule-file-connector.version>
 
+		<!-- Spring dependencies -->
+		<mule-spring-module.version>1.3.9</mule-spring-module.version>
+		<spring-core.version>5.3.29</spring-core.version>
+		<spring-security.version>5.7.11</spring-security.version>
+
 		<!-- Optional dependencies -->
-		<commons-dbcp2.version>2.9.0</commons-dbcp2.version>
+		<commons-dbcp2.version>2.10.0</commons-dbcp2.version>
 		<derby.version>10.14.2.0</derby.version>
 		<log4j-core.version>2.20.0</log4j-core.version>
 		<log4j-api.version>2.20.0</log4j-api.version>
+		<!-- 
 		<logzio-log4j2-appender.version>1.0.18</logzio-log4j2-appender.version>
 		<logzio-sender.version>1.1.7</logzio-sender.version>
-		<mssql-jdbc.version>12.4.0.jre8</mssql-jdbc.version>
+		 -->
+		<logzio-log4j2-appender.version>2.0.0</logzio-log4j2-appender.version>
+		<logzio-sender.version>2.0.0</logzio-sender.version>
+		<mssql-jdbc.version>12.4.1.jre8</mssql-jdbc.version>
 		<mule-email-connector.version>1.7.2</mule-email-connector.version>
-		<mule-db-connector.version>1.14.2</mule-db-connector.version>
+		<mule-db-connector.version>1.14.3</mule-db-connector.version>
 		<mule-scripting-module.version>2.0.3</mule-scripting-module.version>
 		<mule4-snowflake-connector.version>1.1.2</mule4-snowflake-connector.version>
-		<mule-spring-module.version>1.3.7</mule-spring-module.version>
-		<mule-ftp-connector.version>1.8.3</mule-ftp-connector.version>
-		<mule-sftp-connector.version>1.6.1</mule-sftp-connector.version>
+		<mule-ftp-connector.version>1.8.5</mule-ftp-connector.version>
+		<mule-sftp-connector.version>2.0.0</mule-sftp-connector.version>
 		<mule-otel-connector.version>1.0.74</mule-otel-connector.version>
-		<mule-salesforce-connector.version>10.18.3</mule-salesforce-connector.version>
-		<spring-core.version>5.3.28</spring-core.version>
-		<spring-security.version>5.7.9</spring-security.version>
+		<mule-salesforce-connector.version>10.18.5</mule-salesforce-connector.version>
 
 		<!-- Next property is used when deploying the parent pom file to Anypoint Exchange -->
 		<type>custom</type>
@@ -216,6 +222,72 @@
 				</executions>
                 <inherited>false</inherited>
 	        </plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.16.1</version>
+				<configuration>
+					<ignoredVersions>.*-alpha.*,.*jre11</ignoredVersions>
+					<ruleSet>
+						<rules>
+							<rule>
+								<groupId>org.apache.derby</groupId>
+								<ignoreVersions>
+									<ignoreVersion>
+										<type>regex</type>
+										<version>^10.16.*</version>
+									</ignoreVersion>
+									<ignoreVersion>
+										<type>regex</type>
+										<version>^10.15.*</version>
+									</ignoreVersion>									
+								</ignoreVersions>	
+								<comparisonMethod>maven</comparisonMethod>
+							</rule>						
+							<rule>
+								<groupId>org.springframework.security</groupId>
+								<ignoreVersions>
+									<ignoreVersion>
+										<type>regex</type>
+										<version>^6.*$</version>
+									</ignoreVersion>
+									<ignoreVersion>
+										<type>regex</type>
+										<version>^5.8.*$</version>
+									</ignoreVersion>									
+								</ignoreVersions>	
+								<comparisonMethod>maven</comparisonMethod>
+							</rule>
+							<rule>
+								<groupId>org.springframework</groupId>
+								<ignoreVersions>
+									<ignoreVersion>
+										<type>regex</type>
+										<version>^6.*$</version>
+									</ignoreVersion>
+									<ignoreVersion>
+										<type>regex</type>
+										<version>^5.3.30</version>
+									</ignoreVersion>									
+								</ignoreVersions>	
+								<comparisonMethod>maven</comparisonMethod>
+							</rule>
+						</rules>
+					</ruleSet>
+				</configuration>
+				<!--
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>dependency-updates-report</report>
+							<report>plugin-updates-report</report>
+							<report>property-updates-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+				-->
+			</plugin>
 		</plugins>
 		
 		<!-- Enable referencing of Maven properties in Mule config files -->

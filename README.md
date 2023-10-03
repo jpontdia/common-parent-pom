@@ -131,7 +131,10 @@ Next are the plugins and dependencies included in the parent POM and the link to
 
 **Spring Framework artifacts**
 
-All next dependencies have a dependency on the Mulesoft Runtime version, so they shoud not be updated to the latest available version
+All next dependencies have a dependency on the Mulesoft Runtime version, so they shoud not be updated to the latest available version.
+
+Mule Spring connector: [link](https://www.mulesoft.com/exchange/org.mule.modules/mule-spring-module)
+Spring Module Release Notes: [link])(https://docs.mulesoft.com/release-notes/connector/spring-module-release-notes)
 
 | Artifact      | Documentation / Versions available |
 | ----------- | ----------- |
