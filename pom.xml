@@ -228,9 +228,11 @@
 				<artifactId>versions-maven-plugin</artifactId>
 				<version>2.16.1</version>
 				<configuration>
+					<!-- Ignore alpha and JDK 11 dependencies -->
 					<ignoredVersions>.*-alpha.*,.*jre11</ignoredVersions>
 					<ruleSet>
 						<rules>
+							<!-- The latest version compatible with jdk8 is 10.14.* -->
 							<rule>
 								<groupId>org.apache.derby</groupId>
 								<ignoreVersions>
@@ -244,7 +246,10 @@
 									</ignoreVersion>									
 								</ignoreVersions>	
 								<comparisonMethod>maven</comparisonMethod>
-							</rule>						
+							</rule>
+
+							<!-- Spring Security is dependent of Spring Core -->
+							<!-- 5.7.x -->
 							<rule>
 								<groupId>org.springframework.security</groupId>
 								<ignoreVersions>
@@ -259,6 +264,8 @@
 								</ignoreVersions>	
 								<comparisonMethod>maven</comparisonMethod>
 							</rule>
+
+							<!-- Spring Framework must be in the 5.3.x version -->
 							<rule>
 								<groupId>org.springframework</groupId>
 								<ignoreVersions>
