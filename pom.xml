@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.12</version>
+	<version>1.0.13</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -29,7 +29,7 @@
 		<tags>POM, Common</tags>
 
 		<!-- https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.4.0-release-notes -->
-		<app.runtime>4.4.0-20230822</app.runtime>
+		<app.runtime>4.4.0-20230918</app.runtime>
 
 		<!-- Code coverage settings -->
 		<codecoverage.flow>20</codecoverage.flow>
@@ -47,7 +47,7 @@
 		<exchange-mule-maven-plugin.version>0.0.21</exchange-mule-maven-plugin.version>
 
 		<!-- Basic connectors and plugins-->
-		<mule-http-connector.version>1.7.3</mule-http-connector.version>
+		<mule-http-connector.version>1.8.0</mule-http-connector.version>
 		<mule-apikit-module.version>1.9.1</mule-apikit-module.version>
 		<mule-tracing-module.version>1.0.0</mule-tracing-module.version>
 		<munit-maven-plugin.version>2.3.18</munit-maven-plugin.version>
@@ -76,15 +76,11 @@
 		<derby.version>10.14.2.0</derby.version>
 		<log4j-core.version>2.20.0</log4j-core.version>
 		<log4j-api.version>2.20.0</log4j-api.version>
-		<!-- 
-		<logzio-log4j2-appender.version>1.0.18</logzio-log4j2-appender.version>
-		<logzio-sender.version>1.1.7</logzio-sender.version>
-		 -->
 		<logzio-log4j2-appender.version>2.0.0</logzio-log4j2-appender.version>
 		<logzio-sender.version>2.0.0</logzio-sender.version>
 		<mssql-jdbc.version>12.4.1.jre8</mssql-jdbc.version>
 		<mule-email-connector.version>1.7.2</mule-email-connector.version>
-		<mule-db-connector.version>1.14.3</mule-db-connector.version>
+		<mule-db-connector.version>1.14.4</mule-db-connector.version>
 		<mule-scripting-module.version>2.0.3</mule-scripting-module.version>
 		<mule4-snowflake-connector.version>1.1.2</mule4-snowflake-connector.version>
 		<mule-ftp-connector.version>1.8.5</mule-ftp-connector.version>
