@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.14</version>
+	<version>1.0.15</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -71,13 +71,18 @@
 		<spring-core.version>5.3.29</spring-core.version>
 		<spring-security.version>5.7.11</spring-security.version>
 
+		<!-- Logging dependencies -->
+		<slf4j-api.version>2.0.9</slf4j-api.version>
+		<log4j-core.version>2.20.0</log4j-core.version>
+		<log4j-api.version>2.20.0</log4j-api.version>
+		<log4j-layout-template-json.version>2.20.0</log4j-layout-template-json.version>
+		<logzio-log4j2-appender.version>2.0.0</logzio-log4j2-appender.version>
+		<logzio-sender.version>2.0.0</logzio-sender.version>
+		<splunk-library-javalogging.version>1.11.8</splunk-library-javalogging.version>
+
 		<!-- Optional dependencies -->
 		<commons-dbcp2.version>2.10.0</commons-dbcp2.version>
 		<derby.version>10.14.2.0</derby.version>
-		<log4j-core.version>2.20.0</log4j-core.version>
-		<log4j-api.version>2.20.0</log4j-api.version>
-		<logzio-log4j2-appender.version>2.0.0</logzio-log4j2-appender.version>
-		<logzio-sender.version>2.0.0</logzio-sender.version>
 		<mssql-jdbc.version>12.4.1.jre8</mssql-jdbc.version>
 		<mule-email-connector.version>1.7.2</mule-email-connector.version>
 		<mule-db-connector.version>1.14.4</mule-db-connector.version>
@@ -405,6 +410,11 @@
 
             <!-- Logging -->
 			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j-api.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-core</artifactId>
 				<version>${log4j-core.version}</version>
@@ -415,6 +425,11 @@
 				<version>${log4j-api.version}</version>
 			</dependency>
 			<dependency>
+    			<groupId>org.apache.logging.log4j</groupId>
+    			<artifactId>log4j-layout-template-json</artifactId>
+    			<version>${log4j-layout-template-json.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>io.logz.log4j2</groupId>
 				<artifactId>logzio-log4j2-appender</artifactId>
 				<version>${logzio-log4j2-appender.version}</version>
@@ -423,6 +438,12 @@
 				<groupId>io.logz.sender</groupId>
 				<artifactId>logzio-sender</artifactId>
 				<version>${logzio-sender.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.splunk.logging</groupId>
+				<artifactId>splunk-library-javalogging</artifactId>
+				<version>${splunk-library-javalogging.version}</version>
+				<scope>runtime</scope>
 			</dependency>
 
 			<!-- Mule Metrics Toolkit Application -->
@@ -595,6 +616,13 @@
 			<url>https://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
 		</repository>
+
+		<!-- Splunk artifacts -->
+		<repository> 
+			<id>splunk-artifactory</id> 
+			<name>Splunk Releases</name> 
+			<url>https://splunk.jfrog.io/splunk/ext-releases-local</url>
+		</repository>
 	</repositories>
 
 	<pluginRepositories>
@@ -612,8 +640,8 @@
 	<!-- To deploy artifacts in Anypoint Organization Repository -->
 	<distributionManagement>
 		<repository>
+		
 			<!-- Commercial version: Cloudhub -->
-
 			<id>anypoint-exchange-v3</id>
 			<name>Assets for your anypoint organization</name>
 			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
