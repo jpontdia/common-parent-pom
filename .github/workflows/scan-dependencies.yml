@@ -1,5 +1,6 @@
 name: scan-dependencies
-
+on:
+  
 jobs: 
   scan:
     uses: jpontdia/common-devops/.github/workflows/scan-dependencies.yml@main    
