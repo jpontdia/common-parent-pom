@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.22</version>
+	<version>1.0.23</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -73,7 +73,7 @@
 
 		<!-- Logging dependencies -->
 		<slf4j-api.version>2.0.9</slf4j-api.version>
-		<log4j-core.version>2.20.0</log4j-core.version>
+		<log4j-core.version>2.21.0</log4j-core.version>
 		<log4j-api.version>2.21.0</log4j-api.version>
 		<log4j-layout-template-json.version>2.21.0</log4j-layout-template-json.version>
 		<logzio-log4j2-appender.version>2.0.0</logzio-log4j2-appender.version>
