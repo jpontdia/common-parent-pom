@@ -76,8 +76,8 @@
 		<log4j-core.version>2.21.0</log4j-core.version>
 		<log4j-api.version>2.21.0</log4j-api.version>
 		<log4j-layout-template-json.version>2.21.0</log4j-layout-template-json.version>
-		<logzio-log4j2-appender.version>2.0.0</logzio-log4j2-appender.version>
-		<logzio-sender.version>2.0.0</logzio-sender.version>
+		<logzio-log4j2-appender.version>1.1.8</logzio-log4j2-appender.version>
+		<logzio-sender.version>1.1.8</logzio-sender.version>
 		<splunk-library-javalogging.version>1.11.8</splunk-library-javalogging.version>
 
 		<!-- Optional dependencies -->
@@ -243,6 +243,7 @@
 				<configuration>
 
 					<!-- Ignore alpha and JDK 11 dependencies -->
+					<!-- Ignore rc (release candidate) for com.mulesoft -->
 					<ignoredVersions>.*-alpha.*,.*jre11,.*-rc.*</ignoredVersions>
 					<ruleSet>
 						<rules>
@@ -279,7 +280,7 @@
 								<comparisonMethod>maven</comparisonMethod>
 							</rule>
 
-							<!-- Spring Framework must be in the 5.3.x version -->
+							<!-- Spring Core must be 5.3.x compliant -->
 							<rule>
 								<groupId>org.springframework</groupId>
 								<ignoreVersions>
@@ -295,6 +296,17 @@
 								<comparisonMethod>maven</comparisonMethod>
 							</rule>
 
+							<!-- Logz.io must be JDK 8 compatible: 1.1.x, version 2.X is JDK 11 -->
+							<rule>
+								<groupId>io.logz</groupId>
+								<ignoreVersions>
+									<ignoreVersion>
+										<type>regex</type>
+										<version>^2.*$</version>
+									</ignoreVersion>								
+								</ignoreVersions>
+								<comparisonMethod>maven</comparisonMethod>
+							</rule>
 						</rules>
 					</ruleSet>
 				</configuration>
