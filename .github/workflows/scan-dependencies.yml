@@ -1,8 +1,8 @@
-name: Build
+name: scan-dependencies
  
 on:
   workflow_dispatch:
 
 jobs: 
-  Mulesoft:
+  scan:
     uses: jpontdia/common-devops/.github/workflows/scan-dependencies.yml@main    
