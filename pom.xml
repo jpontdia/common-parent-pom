@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.18</version>
+	<version>1.0.20</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
