@@ -1,7 +1,4 @@
 name: scan-dependencies
- 
-on:
-  workflow_dispatch:
 
 jobs: 
   scan:
