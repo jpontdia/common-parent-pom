@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.25</version>
+	<version>1.0.26</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -47,7 +47,8 @@
 		<exchange-mule-maven-plugin.version>0.0.23</exchange-mule-maven-plugin.version>
 
 		<!-- Basic connectors and plugins-->
-		<mule-http-connector.version>1.8.0</mule-http-connector.version>
+		<!-- new version 1.8.0 but with warnings -->
+		<mule-http-connector.version>1.7.3</mule-http-connector.version>
 		<mule-apikit-module.version>1.9.1</mule-apikit-module.version>
 		<mule-tracing-module.version>1.0.0</mule-tracing-module.version>
 		<munit-maven-plugin.version>2.3.18</munit-maven-plugin.version>
