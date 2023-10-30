@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.27</version>
+	<version>1.0.28</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -37,7 +37,7 @@
 		<codecoverage.application>80</codecoverage.application>
 
 		<!-- Plugins -->
-		<mule-maven-plugin.version>4.0.0</mule-maven-plugin.version>
+		<mule-maven-plugin.version>3.8.7</mule-maven-plugin.version>
 		<maven-enforcer-plugin.version>3.4.1</maven-enforcer-plugin.version>
 		<maven-site-plugin.version>4.0.0-M11</maven-site-plugin.version>
 		<maven-project-info-reports-plugin.version>3.4.5</maven-project-info-reports-plugin.version>
@@ -51,9 +51,9 @@
 		<mule-http-connector.version>1.7.3</mule-http-connector.version>
 		<mule-apikit-module.version>1.9.1</mule-apikit-module.version>
 		<mule-tracing-module.version>1.0.0</mule-tracing-module.version>
-		<munit-maven-plugin.version>2.3.18</munit-maven-plugin.version>
-		<munit-tools.version>2.3.18</munit-tools.version>
-		<munit-runner.version>2.3.18</munit-runner.version>
+		<munit-maven-plugin.version>2.3.17</munit-maven-plugin.version>
+		<munit-tools.version>2.3.17</munit-tools.version>
+		<munit-runner.version>2.3.17</munit-runner.version>
 		<mule-validation-module.version>2.0.5</mule-validation-module.version>
 		<assertions.version>1.2.2</assertions.version>
 
