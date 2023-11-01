@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.29</version>
+	<version>1.0.30</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -81,7 +81,7 @@
 		<logzio-sender.version>1.1.8</logzio-sender.version>
 		<splunk-library-javalogging.version>1.11.8</splunk-library-javalogging.version>
 
-		<!-- Databases -->
+		<!-- Database dependencies-->
 		<commons-dbcp2.version>2.10.0</commons-dbcp2.version>
 		<derby.version>10.14.2.0</derby.version>
 		<mssql-jdbc.version>12.4.1.jre8</mssql-jdbc.version>
