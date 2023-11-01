@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.28</version>
+	<version>1.0.29</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -81,14 +81,17 @@
 		<logzio-sender.version>1.1.8</logzio-sender.version>
 		<splunk-library-javalogging.version>1.11.8</splunk-library-javalogging.version>
 
-		<!-- Optional dependencies -->
+		<!-- Databases -->
 		<commons-dbcp2.version>2.10.0</commons-dbcp2.version>
 		<derby.version>10.14.2.0</derby.version>
 		<mssql-jdbc.version>12.4.1.jre8</mssql-jdbc.version>
-		<mule-email-connector.version>1.7.2</mule-email-connector.version>
-		<mule-db-connector.version>1.14.5</mule-db-connector.version>
-		<mule-scripting-module.version>2.0.3</mule-scripting-module.version>
+		<mssql-jdbc_auth.version>12.4.1.x64</mssql-jdbc_auth.version>
+		<mule-db-connector.version>1.14.4</mule-db-connector.version>
 		<mule4-snowflake-connector.version>1.1.2</mule4-snowflake-connector.version>
+
+		<!-- Optional dependencies -->
+		<mule-email-connector.version>1.7.2</mule-email-connector.version>
+		<mule-scripting-module.version>2.0.3</mule-scripting-module.version>
 		<mule-ftp-connector.version>1.8.5</mule-ftp-connector.version>
 		<mule-sftp-connector.version>2.0.1</mule-sftp-connector.version>
 		<mule-otel-connector.version>1.0.74</mule-otel-connector.version>
@@ -527,6 +530,12 @@
 				<artifactId>mssql-jdbc</artifactId>
 				<version>${mssql-jdbc.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.microsoft.sqlserver</groupId>
+				<artifactId>mssql-jdbc_auth</artifactId>
+				<version>${mssql-jdbc_auth.version}</version>
+				<type>dll</type>
+			</dependency>			
 			<dependency>
 				<groupId>com.mulesoft.connectors</groupId>
 				<artifactId>mule4-snowflake-connector</artifactId>
