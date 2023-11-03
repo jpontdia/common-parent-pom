@@ -128,6 +128,7 @@ Next are the plugins and dependencies included in the parent POM and the link to
 | mule-sftp-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-sftp-connector | 
 | mule4-snowflake-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule4-snowflake-connector | 
 | mule-salesforce-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule-salesforce-connector | 
+| | gov version - <br> https://maven.gov.anypoint.mulesoft.com/api/v2/maven/com/mulesoft/connectors/mule-salesforce-connector/maven-metadata.xml |
 | | https://docs.mulesoft.com/salesforce-connector/10.18 |
 | mule-email-connector| https://mvnrepository.com/artifact/org.mule.connectors/mule-email-connector?repo=mulesoft-releases | 
 
