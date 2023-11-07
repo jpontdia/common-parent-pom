@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.31</version>
+	<version>1.0.32</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -88,6 +88,7 @@
 		<mssql-jdbc_auth.version>12.4.1.x64</mssql-jdbc_auth.version>
 		<mule-db-connector.version>1.14.4</mule-db-connector.version>
 		<mule4-snowflake-connector.version>1.1.2</mule4-snowflake-connector.version>
+		<snowflake-jdbc.version>3.12.17</snowflake-jdbc.version>
 
 		<!-- Optional dependencies -->
 		<mule-email-connector.version>1.7.2</mule-email-connector.version>
@@ -541,7 +542,12 @@
 				<artifactId>mule4-snowflake-connector</artifactId>
 				<version>${mule4-snowflake-connector.version}</version>
 			</dependency>
-			
+			<dependency>
+				<groupId>net.snowflake</groupId>
+				<artifactId>snowflake-jdbc</artifactId>
+				<version>${snowflake-jdbc.version}</version>
+			</dependency>
+
 			<!-- Spring Framework -->
 			<dependency>
 				<groupId>org.mule.modules</groupId>

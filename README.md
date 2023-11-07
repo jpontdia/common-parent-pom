@@ -110,23 +110,35 @@ Next are the plugins and dependencies included in the parent POM and the link to
 | mongodb-driver-legacy | https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-legacy | 
 | mule-file-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-file-connector | 
 
-
-**Optional artifacts**
+**Databases**
 
 | Artifact      | Documentation / Versions available |
 | ----------- | ----------- |
 | derby | https://mvnrepository.com/artifact/org.apache.derby/derby/10.14.2.0 | 
 | | It is dependent on Mule JDK compatibility. This is the last version compatible with jdk8 |
 | commons-dbcp2 | https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 | 
+| mssql-jdbc | https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc | 
+| mssql-jdbc_auth | https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc_auth |
+| mule-db-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-db-connector?repo=mulesoft-releases | 
+| mule4-snowflake-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule4-snowflake-connector | 
+| snowflake-jdbc | https://mvnrepository.com/artifact/net.snowflake/snowflake-jdbc | 
+| | https://docs.snowflake.com/en/developer-guide/jdbc/jdbc | 
+
+**Log Management**
+
+| Artifact      | Documentation / Versions available |
+| ----------- | ----------- |
 | log4j-core | https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core | 
 | log4j-api | https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api | 
 | logzio-log4j2-appender | https://mvnrepository.com/artifact/io.logz.log4j2/logzio-log4j2-appender | 
 | logzio-sender | https://mvnrepository.com/artifact/io.logz.sender/logzio-sender | 
-| mssql-jdbc | https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc | 
-| mule-db-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-db-connector?repo=mulesoft-releases | 
+
+**Optional artifacts**
+
+| Artifact      | Documentation / Versions available |
+| ----------- | ----------- |
 | mule-ftp-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-ftp-connector | 
 | mule-sftp-connector | https://mvnrepository.com/artifact/org.mule.connectors/mule-sftp-connector | 
-| mule4-snowflake-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule4-snowflake-connector | 
 | mule-salesforce-connector | https://anypoint.mulesoft.com/exchange/com.mulesoft.connectors/mule-salesforce-connector | 
 | | gov version - <br> https://maven.gov.anypoint.mulesoft.com/api/v2/maven/com/mulesoft/connectors/mule-salesforce-connector/maven-metadata.xml |
 | | https://docs.mulesoft.com/salesforce-connector/10.18 |
