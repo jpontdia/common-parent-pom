@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.33</version>
+	<version>1.0.34</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -612,6 +612,7 @@
 				<groupId>com.mulesoft.connectors</groupId>
 				<artifactId>mule4-snowflake-connector</artifactId>
 				<version>${mule4-snowflake-connector.version}</version>
+				<classifier>mule-plugin</classifier>
 			</dependency>
 			<dependency>
 				<groupId>net.snowflake</groupId>
