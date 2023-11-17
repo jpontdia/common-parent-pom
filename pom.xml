@@ -4,7 +4,7 @@
 
 	<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
 	<artifactId>common-parent-pom</artifactId>
-	<version>1.0.34</version>
+	<version>1.0.35</version>
 	<packaging>pom</packaging>
 
 	<!-- For documentation in Anypoint Exchange-->
@@ -29,7 +29,7 @@
 		<tags>POM, Common</tags>
 
 		<!-- https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.4.0-release-notes -->
-		<app.runtime>4.4.0-20230918</app.runtime>
+		<app.runtime>4.4.0-20231110</app.runtime>
 
 		<!-- Code coverage settings -->
 		<codecoverage.flow>20</codecoverage.flow>
