@@ -1,4 +1,4 @@
-# common-parent-pom
+# ilsos-pom
 ![Powered by](https://img.shields.io/badge/Powered%20by-Mulesoft-535597.svg)
   ![Build](https://github.com/jpontdia/common-parent-pom/actions/workflows/build.yml/badge.svg)
   ![Build job](https://gist.githubusercontent.com/jpontdia/2f22ca2ddf1ba473d6e2cff61cc2fba9/raw/common-parent-pom-wf.svg)
@@ -11,7 +11,6 @@ Parent POM for Mulesoft applications
 ## Table of contents
 1. [Description](#description)
 1. [Using the parent POM](#usinge-the-parent-pom)
-1. [Runtime upgrade](#runtime-upgrade)
 1. [List of plugins and dependencies](#list-of-plugins-and-dependencies)
 1. [Installation in your organization](#Installation)
 1. [Recommended content](#recommended-content)
@@ -39,8 +38,8 @@ section in the child `pom.xml` as follows:
 ```xml
 	<parent>
 		<groupId>078efef1-d139-48ed-92f5-f8d4a0592374</groupId>
-		<artifactId>common-parent-pom</artifactId>
-		<version>1.0.0</version>
+		<artifactId>ilsos-pom</artifactId>
+		<version>1.0.1</version>
 		<relativePath/>
 	</parent>
 ``` 
@@ -48,23 +47,6 @@ section in the child `pom.xml` as follows:
 Update the element `version` to match the latest release available.
 
 <br> 
-
-## Runtime upgrade
-
-In the next links, We have the latest release for the Mulesoft Runtime that we must update in our pom file to run the test cases against the latest version:
-
-- https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.4.0-release-notes
-- https://repository-master.mulesoft.org/nexus/content/repositories/ci-releases/com/mulesoft/mule/distributions/mule-ee-distribution-standalone/
-
-Update the runtime in the next section of the pom file, example:
-
-```xml
-		<app.runtime>4.4.0-20231110</app.runtime>
-```
-
-Release Notes for 4.5.0 (not yet implemented in this asset) https://docs.mulesoft.com/release-notes/mule-runtime/mule-4.5.0-release-notes
-
-<br>
 
 ## List of plugins and dependencies
 Next are the plugins and dependencies included in the parent POM and the link to check new versions.

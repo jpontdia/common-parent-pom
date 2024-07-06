@@ -1,8 +1,0 @@
-name: Scan dependencies
-on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-jobs: 
-  scan:
-    uses: jpontdia/common-devops/.github/workflows/scan-dependencies.yml@main    
